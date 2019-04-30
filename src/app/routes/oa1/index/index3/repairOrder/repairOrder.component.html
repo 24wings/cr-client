@@ -1,0 +1,186 @@
+<div id="crew-con">
+<div id="day" style="height:100%;overflow:auto;">
+  <div class="dayl">
+    <div class="dayl-div1">
+      <span *ngFor="let v of title;let i=index;" (click)="spanClick(i)"  [ngClass]="{'div-title':i=== oindex}">{{v}}</span>
+    </div>
+    <div>
+      <div id="div1">
+        <dl class="div1dl">
+          <dd class="select" *ngFor="let order of WorkOrderList" (click)="onClick(order)">
+            <div class="div1dldiv2">
+              <p class="headline">
+                <span>{{order.Title}}</span>
+                <i *ngIf="order.Wctype==0" class="stay">待开工</i>
+                <i *ngIf="order.Wctype==1" class="for">进行中</i>
+                <i *ngIf="order.Wctype==2" class="complete">已完成</i>
+                <i *ngIf="order.Wctype==-1" class="cancel">已取消</i>
+              </p>
+              <p class="workHours">
+                <span>总工时：</span>
+                <em>{{order.workingHours}}h</em>
+                <span>已用工时：</span>
+                <em>{{order.UseworkingHours}}h</em>
+                <span>剩余工时：</span>
+                <em>{{order.SurplusHours}}h</em>
+              </p>
+              <p class="endTime" *ngIf="order.Wctype==0||order.Wctype==1">
+                <span>过期时间 ：</span>
+                <i>{{order.BeoverdueTimeDate}}</i>
+              </p>
+              <p class="endTime" *ngIf="order.Wctype==2">
+                <span>结束时间 ：</span>
+                <i>{{order.EndTimeDate}}</i>
+              </p>
+              <p class="endTime" *ngIf="order.Wctype==-1">
+                <span>取消时间 ：</span>
+                <i>{{order.EndTimeDate}}</i>
+              </p>
+              <p class="endTime" *ngIf="order.Wctype==-1">
+                <span>取消原因 ：</span>
+                <i>{{order.Explain}}</i>
+              </p>
+            </div>
+
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DataBind(oindex)" (nzPageSizeChange)="DataBind(oindex)" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+    <ng-template #rangeTemplate let-range="range" let-total>
+      总条数：{{Total}}
+    </ng-template>
+  </div>
+  <div class="dayr">
+    <div class="dayr1">
+      <p class="headline">
+        <span>{{titleR}}</span>
+        <i *ngIf="WctypeR==0" class="stay">待开工</i>
+        <i *ngIf="WctypeR==1" class="for">进行中</i>
+        <i *ngIf="WctypeR==2" class="complete">已完成</i>
+        <i *ngIf="WctypeR==-1" class="cancel">已取消</i>
+      </p>
+      <span>{{BeginTimeDateR}}</span>
+    </div>
+    <div class="dayr2">
+      <p class="dayr2p">
+        <span>所属项目：</span>
+        <span>{{projectNameR}}</span>
+      </p>
+      <p class="dayr2p">
+        <span>总工时：</span>
+        <span>{{workingHoursR}}h</span>
+      </p>
+      <p class="dayr2p">
+        <span>已用工时：</span>
+        <span class="red">{{UseworkingHoursR}}h</span>
+      </p>
+      <p class="dayr2p">
+        <span>剩余工时：</span>
+        <span>{{SurplusHoursR}}h</span>
+      </p>
+      <p class="dayr2p">
+        <span>超时时间：</span>
+        <span>{{BeoverdueTimeDateR}}</span>
+      </p>
+      <p class="dayr2p">
+        <span>指派人：</span>
+        <span>{{AssignNameR}}</span>
+      </p>
+      <p class="dayr2p">
+        <span>通知对象：</span>
+        <span>{{noticePersonNameR}}</span>
+      </p>
+      <div class="dayr2p">
+        <span>工单内容：</span>
+        <p>
+          {{ExplainR}}
+        </p>
+      </div>
+      <p *ngIf="WctypeR==0">
+        <button class="btn" nz-button nzType="primary" (click)="updateOrder(modelR)">修改工单</button>
+        <button class="btn" nz-button nzType="default" (click)="showConfirm(modelR,-1)">取消工单</button>
+      </p>
+      <p *ngIf="WctypeR==1">
+        <button class="btn" nz-button nzType="primary" (click)="showConfirm(modelR,2)">完成工单</button>
+        <button class="btn" nz-button nzType="default" (click)="showConfirm(modelR,-1)">取消工单</button>
+      </p>
+      <p *ngIf="WctypeR==2||WctypeR==-1">
+      </p>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+
+
+
+  <!-- 新增任务工单对话框 -->
+  <nz-modal class="oaOnIs2-1" [(nzVisible)]="isVisible" nzTitle="修改任务工单" (nzOnCancel)="handleCancel()" (nzOnOk)="saveOrder()">
+    <input class="inInput" nz-input style="display:none" [(ngModel)]="idU">
+    <div class="divIn">
+      <nz-form-label class="inlabel">工单标题</nz-form-label>
+      <input class="inInput" nz-input placeholder="请输入" [(ngModel)]="titleU">
+    </div>
+    <div class="divIn">
+      <nz-form-label class="inlabel">所属项目</nz-form-label>
+      <nz-select class="inInput"  style="width: 286px;" [(ngModel)]="projectU" nzAllowClear nzPlaceHolder="Choose">
+        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="divIn">
+      <nz-form-label class="inlabel">工时</nz-form-label>
+      <input class="inInput" nz-input placeholder="请输入" [(ngModel)]="workingHoursU">
+    </div>
+    <div class="divIn">
+      <nz-form-label class="inlabel">指派对象</nz-form-label>
+      <nz-select style="width: 286px;" [(ngModel)]="AssignU" nzAllowClear nzPlaceHolder="Choose">
+        <nz-option *ngFor="let option of cyrList" [nzLabel]="option.name" [nzValue]="option">
+        </nz-option>
+      </nz-select>
+    </div>
+    <div class="divIn">
+      <nz-form-label class="inlabel">开始时间</nz-form-label>
+      <nz-date-picker class="repTime" [(ngModel)]="BeginTimeU"></nz-date-picker>
+    </div>
+
+    <div class="divIn">
+      <nz-form-label class="inlabel">过期时间</nz-form-label>
+      <nz-date-picker class="repTime" [(ngModel)]="BeoverdueTimeU"></nz-date-picker>
+    </div>
+    <div class="divIn">
+      <nz-form-label class="inlabel">抄送</nz-form-label>
+      <!--<nz-select nzMode="tags" style="width: 286px;" nzPlaceHolder="选择抄送人" [(ngModel)]="csr">
+          <nz-option *ngFor="let option of cyrList" [nzLabel]="option.name" [nzValue]="option">
+          </nz-option>
+        </nz-select>-->
+      <nz-tree-select style="width: 70%"
+                      nzPlaceHolder="选择"
+                      [nzDefaultExpandedKeys]="expandKeys"
+                      [nzDropdownMatchSelectWidth]="true"
+                      [(ngModel)]="csr"
+                      nzCheckable
+                      [nzNodes]="nodes"
+                      [nzAsyncData]="true"
+                      (nzExpandChange)="onExpandChange($event)">
+      </nz-tree-select>
+
+    </div>
+    <div class="divIn1">
+      <nz-form-label class="inlabel1">工单描述</nz-form-label>
+      <textarea class="roleText" nz-input nz-input rows="6" placeholder="请输入" [(ngModel)]="ExplainU"></textarea>
+    </div>
+    <div class="divIn1">
+      <nz-form-label class="inlabel">附件</nz-form-label>
+      <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/"
+                 [nzFileList]="fileList">
+        <button nz-button>
+          <i nz-icon type="upload"></i><span>Upload</span>
+        </button>
+      </nz-upload>
+    </div>
+  </nz-modal>
+
+
+
+</div>
+</div>

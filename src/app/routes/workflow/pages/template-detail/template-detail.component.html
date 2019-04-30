@@ -1,0 +1,165 @@
+<div class="workflow-list-title">
+    <h2>工作流模板</h2>
+    <div class="workflow-list-title-menu">
+        <span>首页</span> >
+        <span>工作流</span> >
+        <span>工作流模板</span> >
+        <span>部门预算-ET-01</span>
+    </div>
+</div>
+<div class="workflow-template-details">
+    <div class="workflow-template-details-title">
+        <p>项目终止申请-EH-01 <span class="label-green">行业版</span></p>
+        <div class="workflow-template-details-title-detail">
+            <span>类型：</span>
+            <small>财务-预算</small>
+            <span>发布日期：</span>
+            <small>2016年07月04日</small>
+            <span>备注：</span>
+            <small>按照部门做预算</small>
+        </div>
+        <i nz-icon type="plus" theme="outline" class="add-label" (click)="showModal()"></i>
+    </div>
+    <div class="workflow-template-details-rule">
+        <div class="workflow-template-details-rule-title">
+            <p>规则字段</p>
+        </div>
+        <div class="workflow-template-details-rule-table">
+            <div class="workflow-template-details-rule-table-title">
+                <span style="width:15%">类型</span>
+                <span style="width:15%">字段</span>
+                <span style="width:70%">备注</span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">选择型</span>
+                <span style="width:15%">费用类型</span>
+                <span style="width:70%"></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">选择型</span>
+                <span style="width:15%">费用类型</span>
+                <span style="width:70%"></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">选择型</span>
+                <span style="width:15%">费用类型</span>
+                <span style="width:70%"></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">选择型</span>
+                <span style="width:15%">费用类型</span>
+                <span style="width:70%"></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">选择型</span>
+                <span style="width:15%">费用类型</span>
+                <span style="width:70%"></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <small>表单字段都可以作为规则判断条件！如上表中不包含您要用到的字段，请联系我们添加。</small>
+            </div>
+        </div>
+    </div>
+    <div class="workflow-template-details-rule">
+        <div class="workflow-template-details-rule-title">
+            <p>表单</p>
+            <i nz-icon type="plus" theme="outline" class="add-label" (click)="showModal1()"></i>
+        </div>
+        <div class="workflow-template-details-rule-table">
+            <div class="workflow-template-details-rule-table-title">
+                <span style="width:15%">编号</span>
+                <span style="width:15%">名称</span>
+                <span style="width:70%">调用方法</span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">291</span>
+                <span style="width:15%">部门预算-申请-01</span>
+                <span style="width:70%" class="set-lin">budgetListAction!startWorkFolowDept.action <small>此页面为部门预算申请页面（流程的开始页面）</small></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">291</span>
+                <span style="width:15%">部门预算-申请-01</span>
+                <span style="width:70%" class="set-lin">budgetListAction!startWorkFolowDept.action <small>此页面为部门预算申请页面（流程的开始页面）</small></span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">291</span>
+                <span style="width:15%">部门预算-申请-01</span>
+                <span style="width:70%" class="set-lin">budgetListAction!startWorkFolowDept.action
+                    <small>此页面为部门预算申请页面（流程的开始页面）</small>
+                </span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">291</span>
+                <span style="width:15%">部门预算-申请-01</span>
+                <span style="width:70%" class="set-lin">budgetListAction!startWorkFolowDept.action
+                    <small>此页面为部门预算查看页面（每次提交后的查看页面）</small>
+                </span>
+            </div>
+            <div class="workflow-template-details-rule-table-box">
+                <span style="width:15%">291</span>
+                <span style="width:15%">部门预算-申请-01</span>
+                <span style="width:70%" class="set-lin">budgetListAction!startWorkFolowDept.action
+                    <small>此页面为部门预算的审批页面（领导审批页面）</small>
+                </span>
+            </div>
+            <!-- <div class="workflow-template-details-rule-table-box">
+                <small>表单字段都可以作为规则判断条件！如上表中不包含您要用到的字段，请联系我们添加。</small>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="新建模板" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="addNode">
+    <div class="new-box">
+        <label for="">类型 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala1">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+        <nz-select [ngModel]="'Home'" class="xiala1">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+    </div>
+    <div class="new-box">
+        <label for="">版本 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala2">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+
+    </div>
+    <div class="new-box">
+        <label for="">名称 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">备注 :</label>
+        <textarea rows="4" class="set-w-473" nz-input [(ngModel)]="inputValue"></textarea>
+    </div>
+</nz-modal>
+
+
+
+<nz-modal [(nzVisible)]="isVisible1" nzTitle="注册工作流表单" (nzOnCancel)="handleCancel1()" (nzOnOk)="handleOk1()" class="addNode">
+
+    <div class="new-box">
+        <label for="">表单名称 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">表单编号:</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">调用方法:</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">备注 :</label>
+        <textarea rows="4" class="set-w-473" nz-input [(ngModel)]="inputValue"></textarea>
+    </div>
+</nz-modal>

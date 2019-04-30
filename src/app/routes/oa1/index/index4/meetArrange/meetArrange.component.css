@@ -1,0 +1,63 @@
+.field{margin:20px;background: white;margin-right: 0;margin-top: 0;margin-bottom: 0}
+.fieldUl {
+  height: 50px;
+  box-shadow: 0 0 0;
+  border-bottom: 1px solid #EBEBF5;
+}
+  .fieldUl > li {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #EBEBF5;
+  }
+  .dayl{float: left;width: 100%;background: white}
+
+  .dayl-div1{height: 50px;line-height: 50px;border-bottom: 1px solid #ebebf5;}
+  .dayl-div1>span{padding: 0 20px;font-size: 14px;color: #808080;display: inline-block;cursor: pointer;    margin-left: -5px;}
+  .div-title{
+    border: 1px solid #EBEBF5;
+    color: #333!important;
+    border-bottom: 1px solid white;
+    height: 51px;
+    background: white;
+    font-weight: 900
+  }
+  .meetUl{float: left;width: 100%;padding: 20px 0}
+  #div1,#div2{float: left;width: 100%;}
+  .meetUl>li{width: 18%;border: 1px solid #eee;float: left;margin: 0 1%;margin-bottom: 20px;}
+  .meetImg{width: 50px;height: 50px;    background-size: cover;
+    background-position: center;border-radius: 50px;}
+  .userDiv>.meetImg{float: left;}
+  .userDiv{float: left;width: 100%}
+  .meetInfo{float: left;}
+  .borx{width: 100%;height: 1px;background: #eee}
+  .divMeet>div{    margin-left: -16px;float: left;}
+  .divMeet>div:first-child{margin-left: 0}
+/* .ulRen{float: left;width: 400px;}
+.ulRen>li{width: 18%;float: left;margin: 0 1%} */
+.tableDiv>tbody>tr>td{width:60px;}
+.tableDiv>tbody>tr>td>div{margin:0 auto;clear: both;}
+.tableDiv>tbody>tr>td>p{text-align:center}
+.meetH4{    color: #333;
+  font-size: 16px;
+  margin-top: 20px;}
+.meetH5{    color: #808080;
+  font-size: 14px;}
+.meetInfo>p{margin-bottom: 0}
+.meetInfo>p:first-child{margin-bottom: 5px}
+.meetInfo>p:last-child{margin-left: 10px}
+.meetInfo>p>span:first-child{    margin-left: 10px;
+  margin-right: 10px;
+  color: #337CFB;
+  font-size: 14px;}
+.meetInfo{margin-top: 5px}
+dt,p,span{color: #999}
+dt{margin: 5px 0}
+.divdt{margin: 10px 0}
+.renp{    margin-bottom: 5px;
+  margin-top: 10px;}
+.divMeet{    float: left;
+  margin-bottom: 10px;}
+#crew-con{overflow: auto;margin-right: 0}

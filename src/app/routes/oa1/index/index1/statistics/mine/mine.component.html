@@ -1,0 +1,111 @@
+<div class="long-div" id="crew-con" #divTarget style="height:800px;">
+  <div class="long-div-inner">
+  <nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+    <div class="statistics">
+      <div class="statistics-nav">
+        <div class="statistics-t1">
+          <span>我的考勤</span>
+          <span>
+            <nz-select style="width: 120px;" [compareWith]="compareFn" [(ngModel)]="YearselectedValue" (ngModelChange)="DataBind()" nzAllowClear nzPlaceHolder="请选择年">
+              <nz-option *ngFor="let option of YearoptionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+            </nz-select>
+          </span>
+          <span>
+            <nz-select style="width: 120px;" [compareWith]="compareFn" [(ngModel)]="MonthselectedValue" (ngModelChange)="DataBind()" nzAllowClear nzPlaceHolder="请选择月">
+              <nz-option *ngFor="let option of MonthoptionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+            </nz-select>
+          </span>
+          <i [routerLink]="['/oa1/index/index1/statistics/branch']">部门考勤统计</i>
+        </div>
+        <div class="statistics-t2">
+          <ul>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon1.png" alt="" />
+                <span>{{ShouldCQday}}</span>
+              </div>
+              <p>应出勤天数</p>
+            </li>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon2.png" alt="" />
+                <span>{{ActualCQday}}</span>
+              </div>
+              <p>实际出勤天数</p>
+            </li>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon3.png" alt="" />
+                <span>{{Vacationday}}</span>
+              </div>
+              <p>本月休假天数</p>
+            </li>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon4.png" alt="" />
+                <span>{{OutCardday}}</span>
+              </div>
+              <p>外勤天数</p>
+            </li>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon5.png" alt="" />
+                <span>{{ThismonthLate}}</span>
+              </div>
+              <p>迟到早退次数</p>
+            </li>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon6.png" alt="" />
+                <span>{{NoputCard}}</span>
+              </div>
+              <p>未打卡/旷工次数</p>
+            </li>
+            <li>
+              <div>
+                <img src="../../../../../../assets/img/sta-icon7.png" alt="" />
+                <span>{{SurplusBreakOffDay}}</span>
+              </div>
+              <p>累计剩余调休天数</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="statistics-con">
+        <table>
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>日期</th>
+              <th>上班打卡时间</th>
+              <th>上班打卡状态</th>
+              <th>下班打卡时间</th>
+              <th>下班打卡状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let m of menus,let i = index">
+              <td>{{i+1}}</td>
+              <td>{{m.Date}}</td>
+              <td>{{m.GoWordTime}}</td>
+              <td>
+                <span>{{m.GoWordType}}</span>
+              </td>
+              <td>{{m.OutWordtime}}</td>
+              <td>
+                <span>{{m.OutWordType}}</span>
+              </td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </nz-spin>
+
+  <nz-back-top [nzTarget]="divTarget"></nz-back-top>
+</div>
+</div>

@@ -1,0 +1,107 @@
+<div id="tissue">
+    <div class="tissue-nav">
+        <h4>组织结构</h4>
+        <ul>
+            <li>首页</li>
+            <li> > </li>
+            <li>企业信息</li>
+            <li> > </li>
+            <li>组织结构</li>
+        </ul>
+    </div>
+    <div id="tissue-con">
+      <div>
+        <div class="searchDiv-compile" *ngIf="ifCompile">
+          <button nz-button [nzSize]="size" nzType="default" (click)="isShowModel(1)">
+            <i nz-icon type="plus"></i>新增下属部门
+          </button>
+          <button nz-button [nzSize]="size" nzType="default" (click)="isManageModel()">
+            <i nz-icon type="audit" theme="outline"></i>岗位管理
+          </button>
+          <button nz-button [nzSize]="size" nzType="default" (click)="isShowModel(2)">
+            <i nz-icon type="edit"></i>编辑
+
+          </button>
+          <button nz-button [nzSize]="size" (click)='isShowModels()' nzType="default">
+            <i nz-icon type="delete"></i>删除
+          </button>
+        </div>
+        <button nz-button nzType="default"><i nz-icon type="redo"></i>刷新</button>
+        <div class="searchDiv">
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="搜索部门">
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i nz-icon type="search"></i>
+          </ng-template>
+        </div>
+      </div>
+      <div class="tissue-tree">
+        <nz-tree [nzData]="nodes" nzAsyncData [nzShowIcon]="false" nzShowLine="true" (nzClick)="nzEvent($event)" (nzExpandChange)="onExpandChange($event)">
+        </nz-tree>
+     
+      </div>
+
+    </div>
+
+    <!-- 编辑 模态框 -->
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="isShowModel()" nzCancelText="取消" nzOkText="确认" (nzOnOk)="UpdateGw()">
+        <div class="nzmodal">
+            <input nz-input style="display:none" id="" />
+            <nz-form-label class="label">{{modelTitle}}</nz-form-label>
+            <input class="roleInput" nz-input placeholder="请输入" [(ngModel)]="department">
+            <div style="height: 20px;"></div>
+        </div>
+    </nz-modal>
+
+
+    <!-- 确定删除模态框 -->
+    <nz-modal class="deleteModel" [(nzVisible)]="isVisibles" nzTitle="删除部门" (nzOnCancel)="isShowModels()" (nzOnOk)="handleOk()">
+        <img src="/src/assets/img/warning.png" alt="">
+        <h2>确认删除？</h2>
+        <p>确认删除部门 此部门 吗？</p>
+    </nz-modal>
+
+
+    <!-- 人员管理模态框 -->
+    <nz-modal class="manageModel" [(nzVisible)]="isManage" nzTitle="岗位管理" (nzOnCancel)="isManageModel()" (nzOnOk)="manageModelOk()">
+        <div class="hint">
+            <img src="/src/assets/img/tin.png" alt=""> 双击即可输入或修改
+        </div>
+        <div class="staff">
+            <div class="staff-box" (click)="addStaff()">
+                <i nz-icon type="plus" theme="outline"></i>
+            </div>
+            <div class="staff-b" *ngFor="let item of items; let i = index" class="staff-box" (mouseenter)="showBorder(i)" (mouseleave)="hideBorder(i)">
+              <div (dblclick)="isModifierShow(item,i)" [class.bgc]="chooser">
+                {{item.position}}
+                <div class="staff-boxs" *ngIf="item.show == 'true'">
+                  <img src="/src/assets/img/jian.png" alt="" (click)="deletePost(item.id)">
+                </div>
+              </div>
+            </div>
+            <!-- -->
+        </div>
+    </nz-modal>
+
+
+    <!-- 编辑人员名称模态框 -->
+    <nz-modal [(nzVisible)]="isModifier" (nzOnCancel)="isModifierShowAffirm()" nzCancelText="取消" nzOkText="确认" (nzOnOk)="updatepost()">
+      <div class="nzmodal">
+        <input nz-input style="display:none" [(ngModel)]='postId' />
+        <nz-form-label class="label">{{position}}</nz-form-label>
+        <input class="roleInput" nz-input [(ngModel)]='position1'>
+        <div style="height: 20px;"></div>
+      </div>
+    </nz-modal>
+
+    <!-- 添加人员编辑框 -->
+    <nz-modal [(nzVisible)]="isAddStaff" (nzOnCancel)="addStaff()" nzCancelText="取消" nzOkText="确认" (nzOnOk)="addpost()">
+      <div class="nzmodal">
+        <nz-form-label class="label">添加岗位</nz-form-label>
+        <input class="roleInput" nz-input [(ngModel)]='isAddStaffText'>
+        <div style="height: 20px;"></div>
+      </div>
+    </nz-modal>
+
+</div>

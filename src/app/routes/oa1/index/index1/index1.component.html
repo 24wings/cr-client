@@ -1,0 +1,25 @@
+<div class="attendance" id="screenHeight">
+  <div class="attendance-nav">
+    <div class="attendance-nav-div1 fl">
+      <i>考勤管理</i>
+      <em class="menuUls abcs" nz-menu [nzMode]="mode">
+        <span *ngFor="let m of menus" nz-menu-item [nzSelected]="m.selected" (click)="to(m)">
+          {{m.title}}
+        </span>
+      </em>
+    </div>
+    <div class="attendance-nav-div2 fr">
+      <span>首页</span>
+      <span>></span>
+      <span>协同OA </span>
+      <span>></span>
+      <span>考勤管理</span>
+    </div>
+  </div>
+  <div style="margin-top:80px">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+

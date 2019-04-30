@@ -1,0 +1,72 @@
+<div>
+  <nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+    <div class="field">
+      <div style="background:white">
+        <div class="typeDiv">
+          <span>类别</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="typeValue" (ngModelChange)="DataBind()" [nzButtonStyle]="'solid'">
+            <label nz-radio-button nzValue="部门统计">部门统计</label>
+            <label nz-radio-button nzValue="区域统计">区域统计</label>
+          </nz-radio-group>
+        </div>
+        <div class="dateDiv">
+          <span>日期</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="dateValue" (ngModelChange)="DataBind()" [nzButtonStyle]="'solid'">
+            <label nz-radio-button nzValue="全部">全部</label>
+            <label nz-radio-button nzValue="今天">今天</label>
+            <label nz-radio-button nzValue="昨天">昨天</label>
+            <label nz-radio-button nzValue="本周">本周</label>
+            <label nz-radio-button nzValue="近三个月">近三个月</label>
+            <label nz-radio-button nzValue="本月">本月</label>
+            <label nz-radio-button nzValue="上月">上月</label>
+          </nz-radio-group>
+        </div>
+        <div class="searchDiv">
+          <span>搜索</span>
+          <nz-input-group nzSearch [nzSuffix]="suffixIconButton">
+            <input type="text" class="searchInput" nz-input placeholder="请输入部门名称进行搜索" [(ngModel)]="SC">
+          </nz-input-group>
+          <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch (click)="DataBind()"><i nz-icon type="search"></i></button>
+          </ng-template>
+        </div>
+      </div>
+      <div class="statistical">
+        <div *ngFor="let m of menus" class="statisticaldiv1" nz-button nz-popover nzTitle={{m.department}} [nzContent]="contentTemplate" nzPlacement="bottom">
+          <div class="sta-div1">
+            <span>创</span>
+            <span>{{m.department}}</span>
+          </div>
+          <div class="sta-div2 fl">
+            <div>
+              <p>{{m.OutCardPersons}}</p>
+              <p>签到人员</p>
+            </div>
+            <div>
+              <p>{{m.OutCardNumber}}</p>
+              <p>签到次数</p>
+            </div>
+          </div>
+          <ng-template #contentTemplate>
+            <table>
+              <thead>
+                <tr>
+                  <th>姓名</th>
+                  <th>职位</th>
+                  <th>次数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let n of m.OutcardStatisticsXqList">
+                  <td>{{n.name}}</td>
+                  <td>{{n.Post}}</td>
+                  <td>{{n.Numbert}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
+        </div>
+      </div> 
+    </div>
+  </nz-spin>
+</div>

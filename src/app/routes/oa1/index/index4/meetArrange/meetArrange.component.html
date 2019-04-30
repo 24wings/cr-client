@@ -1,0 +1,58 @@
+<div id="crew-con">
+<div class="field" style="height:100%;overflow:auto;">
+    <div class="dayl-div1">
+       <span *ngFor="let v of title;let i=index;" (click)="spanClick(i)" [ngClass]="{'div-title':i=== oindex}">{{v}}</span>
+    </div>
+    <!-- 待进行 -->
+    <div  id="div1">
+      <div *ngIf="!Total" style="margin-top: 16px;color: #969595;text-indent: 20px;font-size: 18px;">
+        暂无数据
+      </div>
+      <ul class="meetUl" id="conDiv">
+        <li nz-button nz-popover nzTitle="参加人" [nzContent]="contentTemplate" nzPlacement="bottom" *ngFor="let option of BookConferenceXq">
+          <h4 class="meetH4">标题：{{option.title}}</h4>
+          <h5 class="meetH5">内容：{{option.content}}</h5>
+          <div class="userDiv">
+            <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+            <div class="meetInfo">
+              <p>
+                <span>发起人</span>
+                <span>{{option.fqrname}}</span>
+              </p>
+              <p>{{option.fqrdepartment}} / {{option.fqrposition}}</p>
+            </div>
+          </div>
+          <div style="clear:both"></div>
+          <div class="divdt">
+            <dt>会议室：{{option.hysname}}</dt>
+            <dt>时间：{{option.time}}</dt>
+            <dt>部门：{{option.bm}}</dt>
+            <dt>项目：{{option.project}}</dt>
+          </div>
+          <div class="borx"></div>
+          <p class="renp">{{option.cyrCount}}人参加</p>
+          <ng-template #contentTemplate>
+            <table class="tableDiv">
+              <tbody>
+                <tr>
+                  <td *ngFor="let op of option.cyrList">
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>{{op.cyrname}}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
+        </li>
+      </ul>
+      <nz-pagination *ngIf="Total" class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DateBind()" (nzPageSizeChange)="DateBind()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+      <ng-template *ngIf="Total" #rangeTemplate let-range="range" let-total>
+        总条数：{{Total}}
+      </ng-template>
+    </div>
+    <div style="clear:both"></div>
+    <!-- 已完成 -->
+    
+    <div style="clear:both"></div>
+</div>
+</div>

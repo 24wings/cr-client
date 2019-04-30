@@ -1,0 +1,71 @@
+.events {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .events .ant-badge-status {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      text-overflow: ellipsis;
+      font-size: 12px;
+   }
+  
+  .notes-month {
+    text-align: center;
+    font-size: 28px;
+  }
+  
+  .notes-month section {
+      font-size: 28px;
+   }
+  .attendance-nav {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #EBEBF5;
+    float: left;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background: #f5f5fa;
+    z-index:99
+  }
+  .attendance-nav-div1 > i {
+    font-style: normal;
+    font-size: 18px;
+    color: #333;
+    padding: 0 20px;
+    float: left;
+  }
+  .attendance-nav-div1 > em {
+    font-style: normal;
+    float: left;
+    box-shadow: 0 0px 0px;
+    background: transparent
+  }
+    .attendance-nav-div1 > em > span {
+      font-size: 14px;
+      color: #333;
+      margin: 0 20px;
+      padding: 0;
+      display: inline-block;
+      height: 59px;
+      line-height: 60px;
+      font-weight: 900;
+      cursor: pointer;
+      background: #f5f5fa
+    }
+  .select-border {
+    border-bottom: 2px solid #337CFB;
+  }
+  .attendance-nav-div2{margin-right:20px}
+  
+  .abcs > .ant-menu-item-selected {
+    color: red;
+    background: transparent;
+    border-bottom: 2px solid #337CFB;
+  }
+    .abcs > .ant-menu-item-selected:active {
+      border-bottom: 2px solid #337CFB;
+    }
+  

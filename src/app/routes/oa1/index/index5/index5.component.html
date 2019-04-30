@@ -1,0 +1,78 @@
+<div class="attendance" id="crew-con">
+  <div class="attendance-nav">
+    <div class="attendance-nav-div1 fl">
+      <i>公告</i>
+    </div>
+    <div class="attendance-nav-div2 fr">
+      <span>首页</span>
+      <span>></span>
+      <span>协同OA </span>
+      <span>></span>
+      <span>公告</span>
+    </div>
+  </div>
+  <div id="day">
+    <div class="dayl">
+      <div>
+        <div id="div1">
+          <dl class="div1dl">
+            <dd *ngFor="let po of NoticeList" (click)="GetXq(po)">
+              <div class="div1dldiv1" [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+              <div class="div1dldiv2">
+                <p class="name">{{po.name}}</p>
+                <p class="date">{{po.Dtime}}</p>
+                <p class="describe">{{po.content}}</p>
+              </div>
+            </dd>
+          </dl>
+        </div>
+        <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DataBind()" (nzPageSizeChange)="DataBind()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+        <ng-template #rangeTemplate let-range="range" let-total>
+          总条数：{{Total}}
+        </ng-template>
+      </div>
+    </div>
+    <div class="dayr">
+      <div class="dayr1">
+        <div>
+            <div class="div1dldiv1"  [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+            <p class="dayr1p">{{xq_name}}</p>
+        </div>
+        <span>{{xq_Dtime}}</span>
+      </div>
+      <div class="dayr2">
+        <p>{{xq_content}}</p>
+      </div>
+      <div class="dayr3">
+        <div class="dayr3-div1">
+          <span>汇报对象</span>
+          <span>{{hbdx}}</span>
+        </div>
+        <div class="dayr3-div2">
+          <textarea rows="4" nz-input [(ngModel)]="plcontent"></textarea>
+          <button nz-button nzType="primary" (click)="Tjcomment()">提交</button>
+        </div>
+        <div class="dayr3-div3">
+          <dl>
+            <dd *ngFor="let op of listsPl">
+              <div class="div1dldiv1 daydivimg" [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+              <div class="fl">
+                <p class="userp">{{op.name}}</p>
+                <p class="descp">{{op.content}}</p>
+              </div>
+              <p class="day3p fr">{{op.datetime}}</p>
+            </dd>
+          </dl>
+          <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndexpl" [nzTotal]="Totalpl" nzShowSizeChanger [(nzPageSize)]="PageSizepl" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="Bindcomment()" (nzPageSizeChange)="Bindcomment()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+          <ng-template #rangeTemplate let-range="range" let-total>
+            总条数：{{Totalpl}}
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+
+</div>
+
+

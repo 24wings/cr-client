@@ -1,0 +1,200 @@
+.workflow-list-title {
+    height: 58px;
+    background: rgba(245, 245, 250, 1);
+    box-shadow: -2px 0 2px #888;
+    overflow: hidden;
+    /* border-bottom: 1px dotted rgba(235, 235, 245, 1); */
+}
+
+.workflow-list-title>h2 {
+    font-size: 18px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 58px;
+    float: left;
+    text-indent: 20px;
+}
+
+.workflow-list-title .workflow-list-title-menu {
+    float: right;
+    line-height: 58px;
+}
+
+.workflow-list-title .workflow-list-title-menu>span {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.workflow-template-details {
+    margin: 15px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.workflow-template-details-title {
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px dotted rgba(235, 235, 245, 1);
+    position: relative;
+}
+
+.workflow-template-details-title>p {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    float: left;
+    line-height: 40px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.workflow-template-details-title>p>span {
+    width: 60px;
+    height: 24px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 24px;
+    text-align: center;
+    display: inline-block;
+    /* float: left; */
+    margin-left: 15px;
+}
+
+.workflow-template-details-title-detail {
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    float: left;
+}
+
+.workflow-template-details-title-detail>span {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    display: inline-block;
+}
+
+.workflow-template-details-title-detail>small {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.workflow-template-details-rule-title {
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.workflow-template-details-rule-title>p {
+    margin-top: 10px;
+    line-height: 30px;
+    border-left: 3px solid rgba(51, 124, 251, 1);
+    text-indent: 15px;
+}
+
+.workflow-template-details-rule-table {
+    border: 1px solid rgba(230, 230, 240, 1);
+}
+
+.workflow-template-details-rule-table-title {
+    height: 50px;
+    background: rgba(247, 247, 250, 1);
+    display: flex;
+}
+
+.workflow-template-details-rule-table-title>span,
+.workflow-template-details-rule-table-box>span {
+    display: block;
+    line-height: 50px;
+    text-indent: 10px;
+}
+
+.workflow-template-details-rule-table-box {
+    height: 50px;
+    background: #fff;
+    display: flex;
+    border-bottom: 1px solid rgba(230, 230, 240, 1);
+}
+
+.workflow-template-details-rule-table:last-child {
+    border-bottom: none;
+}
+
+.workflow-template-details-rule-table:first-child {
+    border-top: 1px solid rgba(230, 230, 240, 1);
+}
+
+.workflow-template-details-rule-table-box>small {
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 50px;
+    text-indent: 10px;
+}
+
+.workflow-template-details-rule-table-box>span>small {
+    display: block;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 10px;
+}
+
+.set-lin {
+    line-height: 30px!important;
+}
+
+.add-label {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.new-box {
+    margin-top: 20px;
+}
+
+.new-box>label {
+    display: inline-block;
+    width: 70px;
+}
+
+.set-w-473 {
+    width: 437px;
+}
+
+.workflow-list-search-right .xiala .ng-star-inserted {
+    line-height: 40px;
+}
+
+.xiala1 {
+    width: 221px;
+}
+
+.xiala2 {
+    width: 442px;
+}

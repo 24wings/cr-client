@@ -1,0 +1,308 @@
+.workflow-list-title {
+    height: 58px;
+    background: rgba(245, 245, 250, 1);
+    box-shadow: -2px 0 2px #888;
+    overflow: hidden;
+    /* border-bottom: 1px dotted rgba(235, 235, 245, 1); */
+}
+
+.workflow-list-title>h2 {
+    font-size: 18px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 58px;
+    float: left;
+    text-indent: 20px;
+}
+
+.workflow-list-title .workflow-list-title-menu {
+    float: right;
+    line-height: 58px;
+}
+
+.workflow-list-title .workflow-list-title-menu>span {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.definition {
+    margin: 15px;
+}
+
+.definition>.definition-title {
+    height: 100px;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+}
+
+.definition .definition-title>h2 {
+    font-size: 18px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 40px;
+    margin-bottom: 0!important;
+}
+
+.definition-title-box {
+    height: 40px;
+}
+
+.definition-title-box>small {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50px;
+    margin-right: 20px;
+}
+
+.definition-title-box>span {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 50px;
+}
+
+.h2-title {
+    background: #fff;
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(235, 235, 245, 1);
+    overflow: hidden;
+    text-indent: 10px;
+}
+
+.h2-title>span {
+    display: block;
+    float: left;
+    width: 3px;
+    height: 20px;
+    background: rgba(51, 124, 251, 1);
+    margin-top: 10px;
+}
+
+.definition-one {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(230, 230, 240, 1);
+}
+
+.definition-one .definition-title {
+    width: 100%;
+    height: 51px;
+    background: rgba(247, 247, 250, 1);
+    overflow: hidden;
+}
+
+.definition-one .definition-title>span {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: rgba(51, 124, 251, 1);
+    border-radius: 50%;
+    float: left;
+    text-align: center;
+    line-height: 22px;
+    color: #fff;
+    margin-top: 15.5px;
+    margin-left: 10px;
+}
+
+.definition-one .definition-title>p {
+    margin-bottom: 0;
+    float: left;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50px;
+    margin-left: 15px;
+}
+
+.definition-title>i {
+    float: right;
+    display: block;
+    margin-top: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.invoking {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px dashed rgba(230, 230, 240, 1);
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50px;
+    padding: 0 15px;
+}
+
+.invoking>span {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 50px;
+}
+
+.send {
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(230, 230, 240, 1);
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50px;
+    padding: 0 15px;
+}
+
+.send-top>span,
+.send-bottom>span {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 24px;
+}
+
+.send-top,
+.send-bottom {
+    height: 40px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+}
+
+.rule {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.rule-left {
+    width: 60px;
+    /* height: 100%; */
+    padding: 20px;
+    box-sizing: border-box;
+    /* float: left; */
+    border-right: 1px dashed rgba(230, 230, 240, 1);
+    cursor: pointer;
+}
+
+.rule-title {
+    float: left;
+    width: 100%;
+    min-height: 50px;
+    border-bottom: 1px dashed rgba(230, 230, 240, 1);
+    line-height: 50px;
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.rule-title>span,
+.rule-list>span {
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 50px;
+    padding: 0 10px;
+}
+
+.rule-list {
+    float: left;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.rule-title>small {
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 30px;
+    padding: 5px 10px;
+}
+
+.rule-title>small>i {
+    float: right;
+    margin: 0 10px;
+    line-height: 30px;
+    color: rgba(128, 128, 128, 1);
+    cursor: pointer;
+}
+
+.rule-right {
+    /* float: left; */
+    width: -moz-calc(100% - 100px);
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);
+}
+
+.definition {
+    background: #fff;
+}
+
+.definition-one {
+    margin-top: 40px;
+}
+
+.auto-20 {
+    margin: 20px auto;
+    width: 120px;
+    height: 30px;
+    background: rgba(245, 245, 250, 1);
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    line-height: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.label-input {
+    width: 100px;
+    outline: none;
+    border: none;
+}
+
+.tabl-filtrate {
+    height: 40px;
+    /* border-top: 1px solid rgba(230, 230, 240, 1); */
+    border-bottom: 1px solid rgba(230, 230, 240, 1);
+    display: flex;
+}
+
+.tabl-filtrate label {
+    line-height: 40px;
+}
+
+.set-input-w150 {
+    width: 150px;
+    height: 100%;
+}

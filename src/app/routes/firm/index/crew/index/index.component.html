@@ -1,0 +1,145 @@
+<div id="crew">
+  <nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+    <div id="crew-nav">
+      <h4>人员管理</h4>
+      <ul>
+        <li>首页</li>
+        <li>></li>
+        <li>人员管理</li>
+        <li>></li>
+        <li>人员管理信息</li>
+      </ul>
+    </div>
+    <div id="crew-con">
+      <div>
+        <button routerLink="/firm/index/crew/crewAdd" [queryParams]="{model:1}" nz-button nzType="primary"><i nz-icon type="plus"></i>添加员工</button>
+        <button nz-button nzType="default" (click)="DataBindAll()"><i nz-icon type="redo"></i>刷新</button>
+        <div class="searchDiv">
+          <nz-input-group [nzSuffix]="suffixIconSearch" >
+            <input type="text" [(ngModel)]="queryUserName" nz-input placeholder="搜索员工" >
+          </nz-input-group>
+          <ng-template #suffixIconSearch >
+            <i nz-icon type="search" (click)="DataBindAll()"></i>
+          </ng-template>
+        </div>
+      </div>
+      <div class="crew-sx">
+        <div class="branch">
+          <span class="mr20px">所属部门</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="branchValue" [nzButtonStyle]="'solid'" (ngModelChange)="DataBindAll()">
+            <label *ngFor="let m of branchList" nz-radio-button nzValue={{m.id}}>
+              {{m.department}}
+            </label>
+          </nz-radio-group>
+        </div>
+        <div class="dateEntry">
+          <span class="mr20px">入职日期</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="dateEntryValue" [nzButtonStyle]="'solid'" (ngModelChange)="DataBindAll()">
+            <label *ngFor="let m of dateList" nz-radio-button nzValue={{m.key}}>
+              {{m.title}}
+            </label>
+          </nz-radio-group>
+        </div>
+        <div class="jobState">
+          <span class="mr20px">在职状态</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="jobStateValue" [nzButtonStyle]="'solid'" (ngModelChange)="DataBindAll()">
+            <label *ngFor="let m of stateList" nz-radio-button nzValue={{m.key}}>
+              {{m.title}}
+            </label>
+          </nz-radio-group>
+        </div>
+      </div>
+      <div class="tableDiv">
+        <table>
+          <thead>
+            <tr>
+              <th>姓名</th>
+              <th>工号</th>
+              <th>部门</th>
+              <th>职位</th>
+              <th>入职日期</th>
+              <th>转正日期</th>
+              <th>离职日期</th>
+              <th>退休日期</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let m of menus">
+              <td>{{m.name}}</td>
+              <td>{{m.jobNumber}}</td>
+              <td>{{m.department}}</td>
+              <td>{{m.position}}</td>
+              <td>{{m.rzdatetime}}</td>
+              <td>{{m.zzdatetime}}</td>
+              <td>{{m.lzdatetime}}</td>
+              <td>{{m.txdatetime}}</td>
+              <td>{{m.InworkType}}</td>
+              <td>
+                <button routerLink="/firm/index/crew/crewAdd" [queryParams]="{model:2,userid:m.id,jobPostId:m.companyFrameworkId,postId:m.postId}" nz-button nzType="primary">查看</button>
+                <span (click)="jobTransfer(m)">
+                  转岗
+                </span>
+                <span (click)="promotion(m)">
+                  转正
+                </span>
+                <span (click)="retired(m)">
+                  退休
+                </span>
+                <span (click)="departure(m)">
+                  离职
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 转岗弹出窗 -->
+        <nz-modal [(nzVisible)]="transfer" nzTitle="员工转岗" (nzOnCancel)="jobCancel()" (nzOnOk)="jobOk()">
+          <div class="jobNav" [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+          <p class="jobName">{{lzname}}</p>
+          <p class="jobPost">{{department}} / {{position}}</p>
+          <div class="labelSelect">
+            <label class="label">部门：</label>
+            <nz-select class="input" [(ngModel)]="jobValue1" nzAllowClear nzPlaceHolder="Choose" (ngModelChange)="BindGw()">
+              <nz-option  *ngFor="let m of branchList" nzValue="{{m.id}}" nzLabel="{{m.department}}"></nz-option>
+            </nz-select>
+          </div>
+          <div class="labelSelect">
+            <label class="label">岗位：</label>
+            <nz-select class="input" [(ngModel)]="jobValue2" nzAllowClear nzPlaceHolder="Choose">
+              <nz-option *ngFor="let m of PostList" nzValue="{{m.id}}" nzLabel="{{m.position}}"></nz-option>
+            </nz-select>
+          </div>
+        </nz-modal>
+
+        <!-- 转正弹出窗 -->
+        <nz-modal [(nzVisible)]="prt" nzTitle="员工退休" (nzOnCancel)="prtCancel()" (nzOnOk)="prtOk()">
+          <div class="jobNav" [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+          <p class="jobName">{{lzname}}</p>
+          <h3 class="reth3">确认转正？</h3>
+          <h4 class="reth4">确定<br>批准{{lzname}}转正吗？</h4>
+        </nz-modal>
+
+        <!-- 退休弹出窗 -->
+        <nz-modal [(nzVisible)]="ret" nzTitle="员工退休" (nzOnCancel)="retCancel()" (nzOnOk)="retOk()">
+          <div class="jobNav" [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+          <p class="jobName">{{lzname}}</p>
+          <h3 class="reth3">确认退休？</h3>
+          <h4 class="reth4">确定已办完所有离职手续<br>批准{{lzname}}退休吗？</h4>
+        </nz-modal>
+        <!-- 离职弹出窗 -->
+        <nz-modal [(nzVisible)]="det" nzTitle="员工离职" (nzOnCancel)="detCancel()" (nzOnOk)="detOk()">
+          <div class="jobNav" [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}"></div>
+          <p class="jobName">{{lzname}}</p>
+          <h3 class="reth3">确认离职？</h3>
+          <h4 class="reth4">确定已办完所有离职手续<br>批准{{lzname}}离职吗？</h4>
+        </nz-modal>
+      </div>
+      <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DataBind()" (nzPageSizeChange)="DataBind()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+      <ng-template #rangeTemplate let-range="range" let-total>
+        总条数：{{Total}}
+      </ng-template>
+    </div>
+  </nz-spin>
+</div>

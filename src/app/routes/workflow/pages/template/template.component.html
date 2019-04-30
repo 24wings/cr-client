@@ -1,0 +1,182 @@
+<div class="workflow-list-title">
+    <h2>工作流模板</h2>
+    <div class="workflow-list-title-menu">
+        <span>首页</span> >
+        <span>工作流</span> >
+        <span>工作流模板</span>
+    </div>
+</div>
+
+<div class="workflow-list-search">
+    <button nz-button nzType="primary" class="search-add-btn" (click)="showModal()"><i nz-icon nzType="plus" nzTheme="outline" ></i>新建工作流</button>
+    <div class="workflow-list-search-right">
+        <nz-input-group nzCompact class="workflow-list-search-right">
+            <nz-select [ngModel]="'选择模板类型'" class="xiala">
+                <nz-option [nzLabel]="'Home'" [nzValue]="'选择模板类型'"></nz-option>
+                <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+            </nz-select>
+            <nz-select [ngModel]="'选择版本'" class="xiala">
+                <nz-option [nzLabel]="'Home'" [nzValue]="'选择版本'"></nz-option>
+                <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+            </nz-select>
+            <nz-input-group [nzSuffix]="suffixIconSearch" class="Search">
+                <input type="text" nz-input placeholder="工作流模板名称" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+                <i nz-icon type="search"></i>
+            </ng-template>
+        </nz-input-group>
+    </div>
+</div>
+
+
+<div class="workflow-template">
+    <div class="workflow-template-box">
+        <div class="workflow-template-title" routerLink="/workflow/template/detail">
+            <p>项目终止申请-EH-01 <span class="label-green">行业版</span></p>
+        </div>
+        <div class="workflow-template-box-flow-box">
+            <div class="workflow-template-box-flow">
+                267 项目退出-申请
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                268 项目退出-查看
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                269 项目退出-审批
+            </div>
+        </div>
+        <small>备注:专属于投资行业的项目终止申请单</small>
+    </div>
+    <div class="workflow-template-box">
+        <div class="workflow-template-title">
+            <p>项目终止申请-EH-01 <span class="label-green">行业版</span></p>
+        </div>
+        <div class="workflow-template-box-flow-box">
+            <div class="workflow-template-box-flow">
+                267 项目退出-申请
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                268 项目退出-查看
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                269 项目退出-审批
+            </div>
+        </div>
+        <small>备注:专属于投资行业的项目终止申请单</small>
+    </div>
+    <div class="workflow-template-box">
+        <div class="workflow-template-title">
+            <p>项目终止申请-EH-01 <span class="label-blue">行业版</span></p>
+        </div>
+        <div class="workflow-template-box-flow-box">
+            <div class="workflow-template-box-flow">
+                267 项目退出-申请
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                268 项目退出-查看
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                269 项目退出-审批
+            </div>
+        </div>
+        <small>备注:专属于投资行业的项目终止申请单</small>
+    </div>
+    <div class="workflow-template-box">
+        <div class="workflow-template-title">
+            <p>项目终止申请-EH-01 <span class="label-blue">行业版</span></p>
+        </div>
+        <div class="workflow-template-box-flow-box">
+            <div class="workflow-template-box-flow">
+                267 项目退出-申请
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                268 项目退出-查看
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                269 项目退出-审批
+            </div>
+        </div>
+        <small>备注:专属于投资行业的项目终止申请单</small>
+    </div>
+    <div class="workflow-template-box">
+        <div class="workflow-template-title">
+            <p>项目终止申请-EH-01 <span class="label-orange">行业版</span></p>
+        </div>
+        <div class="workflow-template-box-flow-box">
+            <div class="workflow-template-box-flow">
+                267 项目退出-申请
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                268 项目退出-查看
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                269 项目退出-审批
+            </div>
+        </div>
+        <small>备注:专属于投资行业的项目终止申请单</small>
+    </div>
+    <div class="workflow-template-box">
+        <div class="workflow-template-title">
+            <p>项目终止申请-EH-01 <span class="label-green">行业版</span></p>
+        </div>
+        <div class="workflow-template-box-flow-box">
+            <div class="workflow-template-box-flow">
+                267 项目退出-申请
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                268 项目退出-查看
+            </div>
+            <span>></span>
+            <div class="workflow-template-box-flow">
+                269 项目退出-审批
+            </div>
+        </div>
+        <small>备注:专属于投资行业的项目终止申请单</small>
+    </div>
+</div>
+
+
+
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="新建模板" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="addNode">
+    <div class="new-box">
+        <label for="">类型 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala1">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+        <nz-select [ngModel]="'Home'" class="xiala1">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+    </div>
+    <div class="new-box">
+        <label for="">版本 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala2">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+
+    </div>
+    <div class="new-box">
+        <label for="">名称 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">备注 :</label>
+        <textarea rows="4" class="set-w-473" nz-input [(ngModel)]="inputValue"></textarea>
+    </div>
+</nz-modal>

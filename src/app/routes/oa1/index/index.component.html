@@ -1,0 +1,209 @@
+<div id="mainDiv" class="main" nz-row [nzGutter]="24">
+    <div class="menu" nz-col nzXs="3" nzSm="3" nzMd="3" nzLg="3">
+        <h4 (click)="toHome()">协同OA</h4>
+        <button nz-button nz-popover [nzContent]="contentTemplate" nzPlacement="bottom" class="initiateBtn" nzType="primary"><i nz-icon type="plus"></i>发起工作项</button>
+
+        <ng-template #contentTemplate>
+            <div class="btnCon">
+                <div class="divBtns" (click)="showModal1()">
+                    <p><i nz-icon type="form" theme="outline"></i></p>
+                    <p>汇报</p>
+                </div>
+                <div class="divBtns" (click)="showModal2()">
+                    <p><i nz-icon type="snippets" theme="outline"></i></p>
+                    <p>工单</p>
+                </div>
+                <div class="divBtns">
+                    <p><i nz-icon type="ordered-list" theme="outline"></i></p>
+                    <p>日程</p>
+                </div>
+                <div class="divBtns">
+                    <p><i nz-icon type="user-delete" theme="outline"></i></p>
+                    <p>审批</p>
+                </div>
+                <div class="divBtns" (click)="showModal5()">
+                    <p><i nz-icon type="schedule" theme="outline"></i></p>
+                    <p>公告</p>
+                </div>
+            </div>
+        </ng-template>
+        <!-- 新日报对话框 -->
+        <nz-modal class="oaOnIs3" [(nzVisible)]="isVisible1c1" nzTitle="{{Ttitle}}" (nzOnCancel)="handleCancel1c1()" (nzOnOk)="handleOk1c1()">
+            <input nz-input placeholder="Basic usage" [(ngModel)]="Ttype" style="display:none">
+            <p class="divIn">
+                <nz-form-label class="inlabel">标题</nz-form-label>
+                <input class="inInput" nz-input placeholder="Basic usage" [(ngModel)]="title1">
+            </p>
+            <p class="divIn">
+                <nz-form-label class="inlabel">工时</nz-form-label>
+                <nz-date-picker class="inInput" [(ngModel)]="subTime1" (ngModelChange)="onChange($event)"></nz-date-picker>
+            </p>
+            <p class="divIn">
+                <nz-form-label class="inlabel">汇报对象</nz-form-label>
+                <nz-tree-select style="width: 70%" nzPlaceHolder="选择" [nzDefaultExpandedKeys]="expandKeys" [nzDropdownMatchSelectWidth]="true" [(ngModel)]="hbdx" nzCheckable [nzNodes]="nodes" [nzAsyncData]="true" (nzExpandChange)="onExpandChange($event)">
+                </nz-tree-select>
+            </p>
+            <p class="divIn">
+                <nz-form-label class="inlabel">抄送</nz-form-label>
+                <nz-tree-select style="width: 70%" nzPlaceHolder="选择" [nzDefaultExpandedKeys]="expandKeys" [nzDropdownMatchSelectWidth]="true" [(ngModel)]="csr1" nzCheckable [nzNodes]="nodes" [nzAsyncData]="true" (nzExpandChange)="onExpandChange($event)">
+                </nz-tree-select>
+            </p>
+            <p style="height: 0;">
+                <nz-form-label class="inlabel">关联工单</nz-form-label>
+            </p>
+            <!------------------------------------------------------->
+            <!--<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">-->
+            <p style=" margin-left: 96px;margin-top: -10px;" *ngFor="let control of controlArray;let i = index">
+                <nz-select style="width:120px" nzAllowClear nzPlaceHolder="Choose" [(ngModel)]="selectValue" (ngModelChange)="GzSelectChange()">
+                    <nz-option *ngFor="let po of WorkOrderSelect" [nzValue]="po" [nzLabel]="po.title"></nz-option>
+                </nz-select>
+                <nz-form-label class="inlabel">剩余工时</nz-form-label>
+                <input nz-input style="width:40px" [(ngModel)]="syHous" />
+                <nz-form-label class="inlabel">提交工时</nz-form-label>
+                <input nz-input style="width:40px" [(ngModel)]="tjHous" />
+                <i nz-icon type="minus-circle-o" style="margin-left: 20px;cursor: pointer;" class="dynamic-delete-button" (click)="removeField(control,$event)"></i>
+            </p>
+            <button class="addBtnp" nz-button nzType="default" nzBlock (click)="addField($event)">添加</button>
+            <!--</form>-->
+            <!------------------------------------------------------->
+            <div>
+                <nz-form-label class="inlabel1">汇报内容</nz-form-label>
+                <textarea class="roleText" nz-input nz-input rows="6" placeholder="请输入" [(ngModel)]="Explain1"></textarea>
+            </div>
+            <div class="divIn1">
+                <nz-form-label class="inlabel">附件</nz-form-label>
+                <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/" [nzFileList]="fileList">
+                    <button nz-button>
+            <i nz-icon type="upload"></i><span>Upload</span>
+          </button>
+                </nz-upload>
+            </div>
+        </nz-modal>
+
+        <nz-modal class="oaOnIs2" [(nzVisible)]="isVisible1" nzTitle="选择工作汇报类型" (nzOnCancel)="handleCancel1()" (nzOnOk)="handleOk1()">
+            <div class="isDivImg" (click)="showModal1c1(0)">
+                <img src="../../../../assets/img/workReturnD1.png" />
+                <p>日报</p>
+            </div>
+            <div class="isDivImg" (click)="showModal1c1(1)">
+                <img src="../../../../assets/img/workReturnD2.png" />
+                <p>周报</p>
+            </div>
+            <div class="isDivImg" (click)="showModal1c1(2)">
+                <img src="../../../../assets/img/workReturnD3.png" />
+                <p>月报</p>
+            </div>
+            <div class="isDivImg" (click)="showModal1c1(3)">
+                <img src="../../../../assets/img/workReturnD4.png" />
+                <p>年中总结</p>
+            </div>
+            <div class="isDivImg" (click)="showModal1c1(4)">
+                <img src="../../../../assets/img/workReturnD5.png" />
+                <p>年终总结</p>
+            </div>
+            <div class="isDivImg" (click)="showModal1c1(5)">
+                <img src="../../../../assets/img/workReturnD6.png" />
+                <p>项目汇报</p>
+            </div>
+        </nz-modal>
+        <!-- 新增任务工单对话框 -->
+        <nz-modal class="oaOnIs2-1" [(nzVisible)]="isVisible2" nzTitle="新增任务工单" (nzOnCancel)="handleCancel2()" (nzOnOk)="handleOk2()">
+            <input class="inInput" nz-input style="display:none" [(ngModel)]="id">
+            <div class="divIn">
+                <nz-form-label class="inlabel">工单标题</nz-form-label>
+                <input class="inInput" nz-input placeholder="请输入" [(ngModel)]="title">
+            </div>
+            <div class="divIn">
+                <nz-form-label class="inlabel">所属项目</nz-form-label>
+                <nz-select class="inInput" [(ngModel)]="project" nzAllowClear nzPlaceHolder="Choose">
+                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                </nz-select>
+            </div>
+            <div class="divIn">
+                <nz-form-label class="inlabel">工时</nz-form-label>
+                <input class="inInput" nz-input placeholder="请输入" [(ngModel)]="workingHours">
+            </div>
+            <div class="divIn">
+                <nz-form-label class="inlabel">指派对象</nz-form-label>
+                <nz-select style="width: 260px;" [(ngModel)]="Assign" nzAllowClear nzPlaceHolder="Choose">
+                    <nz-option *ngFor="let option of cyrList" [nzLabel]="option.name" [nzValue]="option">
+                    </nz-option>
+                </nz-select>
+            </div>
+            <div class="divIn">
+                <nz-form-label class="inlabel">开始时间</nz-form-label>
+                <nz-date-picker class="repTime" [(ngModel)]="BeginTime"></nz-date-picker>
+            </div>
+
+            <div class="divIn">
+                <nz-form-label class="inlabel">过期时间</nz-form-label>
+                <nz-date-picker class="repTime" [(ngModel)]="BeoverdueTime"></nz-date-picker>
+            </div>
+            <div class="divIn">
+                <nz-form-label class="inlabel">抄送</nz-form-label>
+                <!--<nz-select nzMode="tags" style="width: 266px;" nzPlaceHolder="选择抄送人" [(ngModel)]="csr">
+          <nz-option *ngFor="let option of cyrList" [nzLabel]="option.name" [nzValue]="option">
+          </nz-option>
+        </nz-select>-->
+                <nz-tree-select style="width: 70%" nzPlaceHolder="选择" [nzDefaultExpandedKeys]="expandKeys" [nzDropdownMatchSelectWidth]="true" [(ngModel)]="csr" nzCheckable [nzNodes]="nodes" [nzAsyncData]="true" (nzExpandChange)="onExpandChange($event)">
+                </nz-tree-select>
+
+            </div>
+            <div>
+                <nz-form-label class="inlabel1">工单描述</nz-form-label>
+                <textarea class="roleText" nz-input nz-input rows="6" placeholder="请输入" [(ngModel)]="Explain"></textarea>
+            </div>
+            <div class="divIn1">
+                <nz-form-label class="inlabel">附件</nz-form-label>
+                <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/" [nzFileList]="fileList">
+                    <button nz-button>
+            <i nz-icon type="upload"></i><span>Upload</span>
+          </button>
+                </nz-upload>
+            </div>
+        </nz-modal>
+
+        <!-- 新增公告对话框 -->
+        <nz-modal class="oaOnIs2-1" [(nzVisible)]="isVisible5" nzTitle="新增公告" (nzOnCancel)="handleCancel5()" (nzOnOk)="handleOk5()">
+            <input class="inInput" nz-input style="display:none" [(ngModel)]="xzgg_id">
+            <div class="divIn">
+                <nz-form-label class="inlabel">标题</nz-form-label>
+                <input class="inInput" nz-input placeholder="请输入" [(ngModel)]="xzgg_title">
+            </div>
+            <div class="divIn">
+                <nz-form-label class="inlabel">通知对象</nz-form-label>
+                <!--<nz-select class="inInput" [(ngModel)]="project" nzAllowClear nzPlaceHolder="Choose">
+            <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>-->
+                <nz-tree-select style="width: 70%" nzPlaceHolder="选择" [nzDefaultExpandedKeys]="expandKeys" [nzDropdownMatchSelectWidth]="true" [(ngModel)]="xzgg_tzdx" nzCheckable [nzNodes]="nodes" [nzAsyncData]="true" (nzExpandChange)="onExpandChange($event)">
+                </nz-tree-select>
+            </div>
+
+            <div>
+                <nz-form-label class="inlabel1">公告内容</nz-form-label>
+                <textarea class="roleText" nz-input nz-input rows="6" placeholder="请输入" [(ngModel)]="xzgg_Explain"></textarea>
+            </div>
+            <div class="divIn1">
+                <nz-form-label class="inlabel">附件</nz-form-label>
+                <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/" [nzFileList]="fileList">
+                    <button nz-button>
+            <i nz-icon type="upload"></i><span>Upload</span>
+          </button>
+                </nz-upload>
+            </div>
+        </nz-modal>
+
+
+        <ul class="menuUl" nz-menu [nzMode]="mode">
+            <!--[ngClass]="{'ant-menu-item-selected':i==0}"-->
+            <li *ngFor="let m of menus" nz-menu-item [nzSelected]="m.selected" (click)="to(m)">
+                {{m.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="content" nz-col nzXs="21" nzSm="21" nzMd="21" nzLg="21">
+        <router-outlet></router-outlet>
+    </div>
+</div>

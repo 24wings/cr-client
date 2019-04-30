@@ -1,0 +1,94 @@
+<div class="workflow-list-title">
+    <h2>工作流</h2>
+    <div class="workflow-list-title-menu">
+        <span>首页</span> >
+        <span>工作流</span> >
+        <span>工作流列表</span>
+    </div>
+</div>
+<div class="workflow-list-search">
+    <button nz-button nzType="primary" class="search-add-btn" (click)="showModal()"><i nz-icon nzType="plus" nzTheme="outline"></i>新建工作流</button>
+    <div class="workflow-list-search-right">
+        <nz-input-group nzCompact class="workflow-list-search-right">
+            <label nz-checkbox [(ngModel)]="checked" class="checked">保留</label>
+            <nz-select [ngModel]="'Home'" class="xiala">
+                <nz-option [nzLabel]="'Home'" [nzValue]="'Home'"></nz-option>
+                <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+            </nz-select>
+            <nz-input-group [nzSuffix]="suffixIconSearch" class="Search">
+                <input type="text" nz-input placeholder="input search text" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+                <i nz-icon type="search"></i>
+            </ng-template>
+        </nz-input-group>
+    </div>
+</div>
+
+
+<nz-table #basicTable [nzData]="listOfData">
+    <thead>
+        <tr>
+            <th>类型</th>
+            <th>工作流名称</th>
+            <th>模板</th>
+            <th>安全</th>
+            <th>保留</th>
+            <th>更新人</th>
+            <th>更新时间</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data" class="workflow-list-table">
+            <td>{{ data.name }}</td>
+            <td routerLink="/workflow/home/detail">{{ data.age }}</td>
+            <td>{{ data.address }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.address }}</td>
+            <td>{{ data.name }}</td>
+        </tr>
+    </tbody>
+</nz-table>
+
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="新建工作流" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="new">
+    <div class="new-box">
+        <label for="">类型 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala1">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+        <nz-select [ngModel]="'Home'" class="xiala1">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+    </div>
+    <div class="new-box">
+        <label for="">模板 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala2">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+
+    </div>
+    <div class="new-box">
+        <label for="">安全级别 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">名称 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">显示名称 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+    <div class="new-box">
+        <label for="">备注 :</label>
+        <textarea rows="4" class="set-w-473" nz-input [(ngModel)]="inputValue"></textarea>
+    </div>
+
+
+</nz-modal>

@@ -1,0 +1,145 @@
+.statistics-nav {
+  height: 182px;
+  background: white;
+}
+.statistics {
+  margin: 20px;
+  margin-top: 0px;
+  margin-right: 0;
+}
+.statistics-t1 {
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+}
+
+  .statistics-t1 > i {
+    float: right;
+    font-size: 14px;
+    color: #808080;
+    font-style: normal;
+    margin-right: 20px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .statistics-t1 > span:first-child {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 14px;
+  }
+
+
+.statistics-t2 > ul {
+  float: left;
+  width: 100%;
+  margin-top: 20px
+}
+
+  .statistics-t2 > ul > li {
+    float: left;
+    height: 90px;
+    width: 14.2%;
+    border-right: 1px solid #ebebf5;
+  }
+
+    .statistics-t2 > ul > li:last-child {
+      border-right: 0
+    }
+
+    .statistics-t2 > ul > li > div {
+      text-align: center;
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+
+    .statistics-t2 > ul > li > p {
+      text-align: center;
+      font-size: 14px;
+      color: #808080;
+    }
+
+    .statistics-t2 > ul > li > div > img {
+      margin-top: -8px;
+    }
+
+    .statistics-t2 > ul > li > div > span {
+      margin-left: 10px;
+      font-size: 20px;
+      color: #333
+    }
+
+.statistics-con {
+  margin-top: 20px;
+}
+
+  .statistics-con > table {
+    width: 100%
+  }
+
+    .statistics-con > table > thead {
+      background: white;
+    }
+
+      .statistics-con > table > thead > tr > th {
+        text-align: center;
+        height: 50px;
+      }
+
+    .statistics-con > table > tbody > tr > td {
+      text-align: center;
+      height: 50px;
+    }
+
+    .statistics-con > table > tbody > tr:nth-child(even) {
+      background: white
+    }
+
+    .statistics-con > table > tbody > tr > td:last-child {
+      color: #337CFB
+    }
+
+.field {
+  margin: 20px
+}
+
+
+
+:host ::ng-deep .ant-back-top {
+  bottom: 100px;
+}
+
+:host ::ng-deep .ant-back-top-inner {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+:host ::ng-deep strong {
+  color: #1088e9;
+}
+
+:host ::ng-deep .long-div {
+  height: 300px;
+  overflow-y: scroll;
+  
+}
+
+:host ::ng-deep .long-div-inner {
+  height: 1500px;
+}
+
+:host ::ng-deep .long-div .ant-back-top {
+  right: 16px;
+  bottom: 16px
+}
+
+:host ::ng-deep strong {
+  color: rgba(64, 64, 64, 0.6);
+}

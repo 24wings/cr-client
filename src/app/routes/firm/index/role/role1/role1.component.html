@@ -1,0 +1,41 @@
+<div id="role-con">
+  <div>
+      <div class="roleBtns">
+          <button nz-button nzType="primary" (click)="showModal('',0)"><i nz-icon type="plus"></i>新增角色</button>
+          <nz-modal [(nzVisible)]="isVisible" nzTitle="{{tt}}" (nzOnCancel)="handleCancel()" nzCancelText="取消" nzOkText="确认" (nzOnOk)="handleOk()">
+            <!-- [nzBodyStyle]="{'width.px': 800}" -->
+            <div class="nzmodal">
+                <input nz-input [(ngModel)]="ID" style="display:none"/>
+                <nz-form-label class="label">角色名称</nz-form-label>
+                <input  class="roleInput" nz-input placeholder="请输入" [(ngModel)]="roleName">
+                <div style="height: 20px;"></div>
+                <nz-form-label class="label labelDesc">角色描述</nz-form-label>
+                <textarea class="roleText" nz-input nz-input rows="2" placeholder="请输入" [(ngModel)]="Explain"></textarea>
+            </div>
+          </nz-modal>
+
+          <button nz-button nzType="default" (click)="DataBind()"><i nz-icon type="redo"></i>刷新</button>
+          <div class="searchDiv">
+              <nz-input-group [nzSuffix]="suffixIconSearch">
+                <input type="text" nz-input placeholder="搜索角色">
+              </nz-input-group>
+              <ng-template #suffixIconSearch>
+                <i nz-icon type="search"></i>
+              </ng-template>
+          </div>
+      </div>
+      <div class="roleCon">
+
+        <div class="roleView" *ngFor="let m of menus">
+          <div class="roleKeyWord">创</div>
+          <h4>{{m.roleName}}</h4>
+          <p class="roleViewDesc roleTitle" nzPlacement="bottom" nz-tooltip nzTitle={{m.Explain}}>{{m.Explain}}</p>
+          <p class="roleViewDesc">该角色目前已配置<span>{{m.sum}}</span>个员工账号。</p>
+          <div class="roleViewBtns">
+            <button class="roleEdit" nz-button nzType="default" (click)="showModal(m,1)"><i nz-icon type="edit"></i>编辑</button>
+            <button *ngIf="m.SuperAdministrator!=1" class="roleEdit" nz-button (click)="showDeleteConfirm(m.ID)" nzType="default"><i nz-icon type="delete"></i>删除</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

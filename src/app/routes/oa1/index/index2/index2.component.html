@@ -1,0 +1,32 @@
+<div class="attendance" id="screenHeight">
+    <div class="attendance-nav">
+      <div class="attendance-nav-div1 fl">
+        <i>工作汇报</i>
+        <em class="menuUls abcs" nz-menu [nzMode]="mode">
+          <!--<span class="select-border" (click)="to()">上下班考勤</span>
+          <span>外勤打卡</span>
+          <span>考勤统计</span>
+          <span>工资条</span>-->
+          <span *ngFor="let m of menus" nz-menu-item [nzSelected]="m.selected" (click)="to(m)">
+            {{m.title}}
+          </span>
+        </em>
+      </div>
+      <div class="attendance-nav-div2 fr">
+        <span>首页</span>
+        <span>></span>
+        <span>协同OA </span>
+        <span>></span>
+        <span>工作汇报</span>
+      </div>
+    </div>
+    <!--
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </div>-->
+    <div style="margin-top:80px">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

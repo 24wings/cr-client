@@ -1,0 +1,13 @@
+<div class="field"  id="crew-con">
+  <div>
+    <ul class="fieldUl" nz-menu [nzMode]="mode">
+      <li *ngFor="let m of menus,let i = index" nz-menu-item [nzSelected]="m.selected" (click)="to(m)">
+        {{m.title}}
+      </li>
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+

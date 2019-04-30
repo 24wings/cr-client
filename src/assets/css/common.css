@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li,
+ol li {
+    list-style: none;
+}
+
+ul {
+    margin-bottom: 0!important
+}
+
+input {
+    outline: none
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.bgcenter {
+    background-size: cover;
+    background-position: center;
+}
+
+.img-circle {
+    width: 50px
+}
+
+.btn-blue {
+    background: #4CA6FF;
+    outline: 0 none;
+    border: 0 none;
+    color: white
+}
+
+.btn-red {
+    background: #FA5644;
+    outline: 0 none;
+    border: 0 none;
+    color: white
+}
+
+.btn-white {
+    background: white;
+    outline: 0 none;
+    color: #333;
+    border: 1px solid #e6e6e6;
+}
+
+
+/*table*/
+
+.table-div thead {
+    background: white
+}
+
+.table-div {
+    margin-top: 20px
+}
+
+th,
+td {
+    vertical-align: inherit!important;
+}
+
+.table-div th,
+.table-div td {
+    height: 50px
+}
+
+.quick-menu,
+.setting-drawer {
+    display: none
+}

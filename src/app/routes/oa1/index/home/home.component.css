@@ -1,0 +1,284 @@
+.oa-nav {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #EBEBF5;
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#oaCon{overflow: auto;width: 100%;margin-top: 20px}
+.oa-nav-r{margin-right:30px}
+.oa-nav-l {
+  text-indent: 20px;
+  font-size: 20px;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(51,51,51,1);
+  line-height: 60px;
+}
+.oa-nav-con1 {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-bottom: 1%;
+}
+  .oa-nav-con1 > div {
+    background: white;
+    height: 200px;
+    width: 23.75% ;
+    margin-left:1%;
+    float: left;
+    border-radius: 4px
+  }
+.oa-nav-con1 > div:last-child{margin-right:1%}
+.userInfo-img {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  width: 34%;
+  margin: 20px;
+}
+.userInfo-info {
+  float: left;
+  margin-top: 20px;
+}
+.userInfo-info>ul>li{
+  margin-bottom:12px;
+  color:#808080;
+  font-size:14px
+}
+  .userInfo-info > ul > li:first-child{
+    color:#333;
+    font-size:16px
+  }
+  .userInfo-info > ul > li>span{color:#333}
+.attendance {
+  margin-left: 20px;
+  font-size: 16px;
+}
+.attendance>div{width:100%}
+  .attendance > h5, .arrange >h5{
+    font-size: 16px;
+    color: #333;
+    margin-left: 20px;
+    margin-top: 17px;
+    margin-bottom: 20px;
+  }
+.at-div1 {
+  border-right: 1px solid #EDEDED;
+}
+.at-div1, .at-div2 {
+  float: left;
+  width: 50%
+}
+.at-p1 {
+  font-size: 14px;
+  color: #808080;
+  text-align: center;
+}
+.at-p2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: -5px;
+}
+
+.att-span1{
+  margin-left: 38%;
+}
+
+.att-span2 {
+  margin-left: 38%;
+}
+.notice-p {
+  float: left;
+  width: 100%;
+  margin-top: 17px;
+}
+.notice-span1 {
+  margin-left: 20px;
+  color:#333;
+  font-size:16px
+}
+.notice-span2 {
+  float: right;
+  margin-right: 20px;
+  color: #808080;
+  font-size:14px;
+  cursor:pointer
+}
+.notice-ul {
+  clear: both;
+  margin: 0 20px;
+}
+  .notice-ul > li {
+    color: #333;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom:12px
+  }
+.arrange >div{
+  background: #F7F7FC;
+  height: 60px;
+  margin:0 20px;
+  margin-bottom:10px;
+}
+.arrange-p1 {
+  float: left;
+  width: 100%;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+.arrange-span1 {
+  font-size: 14px;
+  color: #333;
+  margin-left: 15px;
+  float: left;
+}
+.arrange-span2 {
+  font-size: 14px;
+  float: right;
+  margin-right: 15px;
+  color: #808080;
+}
+.arrange-p2 {
+  float: left;
+  width: 100%;
+  color: #808080;
+  text-indent: 15px;
+  font-size: 12px;
+}
+.oa-content {
+  width: 100%;
+  height: 500px;
+  clear:both;
+  margin-top:1%
+}
+.oa-content>div{
+  width:32%;
+  height:574px;
+  background:white;
+  margin-left:1%;
+  float:left
+}
+  .oa-content > div:last-child{
+    margin-right:1%
+  }
+.repairOrder-h5 {
+  margin-top: 18px;
+  float: left;
+  width: 100%;
+}
+.repairOrder-span1 {
+  float: left;
+  margin-left: 20px;
+  color: #333;
+  font-size: 16px;
+}
+.repairOrder-span2 {
+  float: right;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #808080;
+}
+.repairOrder-info-span1 {
+  font-weight: 900;
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+.repairOrder-div1 {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.repairOrder-info {
+  float: left;
+  margin-top: 20px;
+  width: 100%;
+}
+.repairOrder-div1 > span {
+  color: #808080;
+  margin-right: 20px;
+}
+ .repairOrder-div1 > span > span {
+      color: #333;
+    }
+.repairOrder-div2,
+.repairOrder-div2-com,
+.repairOrder-div2-time,
+.repairOrder-div2-yy {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+  .repairOrder-div2 > span:first-child,
+  .repairOrder-div2-com:first-child,
+  .repairOrder-div2-time :first-child,
+  .repairOrder-div2-yy :first-child{
+    color: #808080;
+  }
+  .repairOrder-div2 > span:last-child,
+  .repairOrder-div2-com:last-child,
+  .repairOrder-div2-time:last-child,
+  .repairOrder-div2-yy :last-child{
+    color: #333;
+  }
+.border1px {
+  width: 92%;
+  margin: 0 auto;
+  height: 1px;
+  background: #E6E6E6;
+  margin-top: 20px;
+}
+
+.reportModule {
+  float: left;
+  width: 100%;
+  padding-bottom:20px
+}
+.reportModule-img {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+.reportModule-info {
+  margin-left: 10px;
+  width: 80%;
+}
+.reportModule > h5, .administrative >h5{
+  margin-bottom: 20px
+}
+.reportModule-p1,
+.reportModule-p2,
+.reportModule-p3,
+.reportModule-p4{
+  margin-bottom: 5px
+}
+  .reportModule-p1 > span:first-child {
+    color: #337CFB;
+    font-size: 14px;
+  }
+  .reportModule-p1 > span:last-child {
+    float: right;
+    color: #808080;
+    font-size: 12px;
+  }
+.reportModule-p2 {
+  color: #333;
+  font-size: 14px;
+}
+.reportModule-p3 {
+  color: #808080;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

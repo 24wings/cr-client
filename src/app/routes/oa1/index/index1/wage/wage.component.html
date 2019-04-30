@@ -1,0 +1,72 @@
+<div id="crew-con">
+  <nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+    <div class="wage">
+      <div class="wage-nav">
+        <h4 class="wage-user">
+          <span>{{LoginAccount}}</span>
+          <span>{{department}}</span>
+        </h4>
+        <ul class="wage-info">
+          <li>计时天数</li>
+          <li>基础工资</li>
+          <li>岗位工资</li>
+          <li>加班补助</li>
+          <li>绩效工资标准</li>
+          <li>绩效评分</li>
+          <li>实发绩效工资</li>
+          <li>电脑补贴</li>
+          <li>其他补发</li>
+          <li>提成</li>
+          <li>应付工资合计</li>
+          <li>迟到</li>
+          <li>旷工</li>
+          <li>未打卡</li>
+          <li>罚单</li>
+          <li>工会费</li>
+          <li>社保代缴（个人）</li>
+          <li>公积金代缴（个人）</li>
+          <li>全勤奖</li>
+          <li>总计</li>
+        </ul>
+      </div>
+
+      <div class="wage-div" *ngFor="let m of menus">
+        <div class="wage-list">
+          <h4 class="wage-user">
+            <span>发放时间：{{m.GrantTimeDate}}</span>
+            <span>工资周期：{{m.GrantMonthDate}}</span>
+          </h4>
+          <ul class="wage-info">
+            <li>{{m.workDay}}</li>
+            <li>{{m.BasicWage}}</li>
+            <li>{{m.positionMoney}}</li>
+            <li>{{m.OvertimeMoney}}</li>
+            <li>{{m.Meritpaystandard}}</li>
+            <li>{{m.Meritpayscore}}</li>
+            <li>{{m.PaymentMeritpay}}</li>
+            <li>{{m.Computersubsidy}}</li>
+            <li>{{m.ReissueOther}}</li>
+            <li>{{m.Royalty}}</li>
+            <li>{{m.Totalpayablewages}}</li>
+            <li>{{m.Late}}</li>
+            <li>{{m.Absenteeism}}</li>
+            <li>{{m.Nopunchcard}}</li>
+            <li>{{m.Infringementnotice}}</li>
+            <li>{{m.Unionfee}}</li>
+            <li>{{m.SocialSecurityPayment}}</li>
+            <li>{{m.ProvidentFundPayment}}</li>
+            <li>{{m.FullAttendanceMoney}}</li>
+            <li>{{m.Total}}</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </nz-spin>
+</div>
+
+
+

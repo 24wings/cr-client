@@ -1,0 +1,125 @@
+<div>
+  <nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+    <div class="field">
+      <div style="background:white">
+        <div class="dateDiv">
+          <span>日期</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="dateValue" (ngModelChange)="DataBindAll()" [nzButtonStyle]="'solid'">
+            <label nz-radio-button nzValue="全部">全部</label>
+            <label nz-radio-button nzValue="今天">今天</label>
+            <label nz-radio-button nzValue="昨天">昨天</label>
+            <label nz-radio-button nzValue="本周">本周</label>
+            <label nz-radio-button nzValue="近三个月">近三个月</label>
+            <label nz-radio-button nzValue="本月">本月</label>
+            <label nz-radio-button nzValue="上月">上月</label>
+          </nz-radio-group>
+        </div>
+        <div class="scopeDiv">
+          <span>范围</span>
+          <nz-radio-group class="nzRadio" [(ngModel)]="scopeValue" (ngModelChange)="DataBindAll()" [nzButtonStyle]="'solid'">
+            <label nz-radio-button nzValue="全部外勤">全部外勤</label>
+            <label nz-radio-button nzValue="我发出的">我发出的</label>
+            <label nz-radio-button nzValue="我收到的">我收到的</label>
+            <label nz-radio-button nzValue="抄送我的">抄送我的</label>
+          </nz-radio-group>
+        </div>
+        <div class="typeDiv">
+          <span>类型</span>
+          <nz-radio-group class="nzRadio" style="width:50%" [(ngModel)]="typeValue" (ngModelChange)="DataBindAll()" [nzButtonStyle]="'solid'">
+            <label nz-radio-button nzValue="全部外勤">全部外勤</label>
+            <label nz-radio-button nzValue="外勤签到">外勤签到</label>
+            <label nz-radio-button nzValue="外勤签出">外勤签出</label>
+          </nz-radio-group>
+          <div class="searchNz">
+            <span nz-popover [nzContent]="contentTemplate" nzPlacement="rightBottom">高级搜索</span>
+          </div>
+          <div class="comTemp">
+            <ng-template #contentTemplate>
+              <form nz-form class="search-form" (ngSubmit)="selectsubmitForm()">
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group class="w">
+                      <input type="text" nz-input placeholder="姓名">
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input type="text" nz-input placeholder="区域">
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input type="text" nz-input placeholder="部门">
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input type="text" nz-input placeholder="客户">
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input type="text" nz-input placeholder="标题">
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <button nz-button class="login-form-button">查询</button>
+                  </nz-form-control>
+                </nz-form-item>
+              </form>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="table-info">
+        <table>
+          <thead>
+            <tr>
+              <th>姓名</th>
+              <th>部门</th>
+              <th>职位</th>
+              <th>签到时间</th>
+              <th>标题</th>
+              <th>内容</th>
+              <th>客户</th>
+              <th>类型</th>
+              <th>地址</th>
+              <th>图片</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let m of menus">
+              <td style="display: table;margin: 0 auto">
+                <span class="imgSpan" [ngStyle]="{'background-image':'url(../../../../../../../assets/img/1.jpg)'}"></span>
+                <span class="userSpan">{{m.name}}</span>
+              </td>
+              <td>{{m.department}}</td>
+              <td>{{m.position}}</td>
+              <td>{{m.InputTime}}</td>
+              <td>{{m.title}}</td>
+              <td>{{m.content}}</td>
+              <td>{{m.Customer}}</td>
+              <td>{{m.CardType}}</td>
+              <td>{{m.Address}}</td>
+              <td><img alt="image" class="img-circle" src="../../../../../../../assets/img/a2.jpg" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DataBind()" (nzPageSizeChange)="DataBind()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+        <ng-template #rangeTemplate let-range="range" let-total>
+          总条数：{{Total}}
+        </ng-template>
+      </div>
+    </div>
+  </nz-spin>
+</div>

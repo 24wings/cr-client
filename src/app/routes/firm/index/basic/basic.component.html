@@ -1,0 +1,97 @@
+<div id="basic">
+  <div class="basic-nav">
+    <h4>基本信息</h4>
+    <ul>
+      <li>首页</li>
+      <li> > </li>
+      <li>企业信息</li>
+      <li> > </li>
+      <li>企业基本信息</li>
+    </ul>
+  </div>
+  <div id="basic-con">
+    <div>
+      <div id="btn" class="saveBtn" (click)="saveBtn()">
+        保存
+      </div>
+      <!--<div class="titleImg" [ngStyle]="{'background-image':'url(../../../../../assets/img/1.jpg)'}"></div>-->
+      <!--<nz-upload class="basicImg" nzAction="/user/avatar" [nzShowUploadList]="false">
+        <button nz-button class="button_view">
+          <i nz-icon type="upload"></i>
+          <span>更换头像</span>
+        </button>
+      </nz-upload>-->
+      <div>
+        <input class="company-txt disabledtxt" [(ngModel)]="CompanyName" />
+      </div>
+      <div>
+        <textarea class="desc-txt disabledtxt" [(ngModel)]="Introduce">
+        </textarea>
+      </div>
+    </div>
+    <div class="info-con">
+      <ul>
+        <li>
+          <div></div>
+          <div>
+            <p>公司电话</p>
+            <input id="CompanyTelephone" class="disabledtxt" type="text" [(ngModel)]="CompanyTelephone">
+          </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>企业邮箱</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="Mail">
+            </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>公司网址</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="Website">
+            </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>所在地区</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="Address">
+            </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>企业类型</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="Type">
+            </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>所属行业</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="Industry">
+            </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>企业负责人</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="HeadPerson">
+            </div>
+        </li>
+        <li>
+            <div></div>
+            <div>
+              <p>负责人电话</p>
+              <input type="text" class="disabledtxt" [(ngModel)]="HeadPhone">
+            </div>
+        </li>
+      </ul>
+    </div>
+    <div class="address">
+      <p>联系我们</p>
+    </div>
+  </div>
+</div>
+

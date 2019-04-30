@@ -1,0 +1,169 @@
+<div class="workflow-list-title">
+    <h2>选择项</h2>
+    <div class="workflow-list-title-menu">
+        <span>首页</span> >
+        <span>选择设置</span> >
+        <span>选择项</span>
+    </div>
+</div>
+
+
+<div class="select-option-component-box">
+    <nz-collapse [nzBordered]="false" class="select-option-component-box-muen">
+        <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+            <p *ngFor="let item of panel.children">{{ item.name }} </p>
+        </nz-collapse-panel>
+    </nz-collapse>
+    <div class="select-option-component-box-table">
+        <nz-table [nzNoResult]="noResult">
+            <thead>
+                <tr>
+                    <th nzWidth="10%"></th>
+                    <th nzWidth="35%"></th>
+                    <th nzWidth="15%">
+
+                    </th>
+                    <th nzWidth="40%">
+                        <button nz-button nzType="default" (click)="showModal()"><i nz-icon type="plus"
+                                theme="outline"></i>新增同级</button>
+                        <button nz-button nzType="default"><i nz-icon type="plus-circle"
+                                theme="outline"></i>新增下级</button>
+                        <button nz-button nzType="default"><i nz-icon type="edit" theme="outline"></i>编辑</button>
+                        <button nz-button nzType="default"><i nz-icon type="minus" theme="outline"></i>删除</button>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>上级选择项</td>
+                    <td>项目规模</td>
+                    <td>ID</td>
+                    <td>40283c8157d1d0380157d23e2fdf0081</td>
+                </tr>
+                <tr>
+                    <td>选择项名称</td>
+                    <td>50-100人</td>
+                    <td>助记码</td>
+                    <td>ren</td>
+                </tr>
+                <tr>
+                    <td>显示名称</td>
+                    <td>50-100人</td>
+                    <td>选择项值</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>保留字符串型</td>
+                    <td></td>
+                    <td>保留数值型</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>是否归档</td>
+                    <td>有效</td>
+                    <td>层级数</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>系统保留</td>
+                    <td>有效</td>
+                    <td>层内顺序</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>财务编码</td>
+                    <td></td>
+                    <td>财务名称</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>创建人</td>
+                    <td>陈明</td>
+                    <td>创建时间</td>
+                    <td>2016-04-22 06:29</td>
+                </tr>
+                <tr>
+                    <td>更新人</td>
+                    <td></td>
+                    <td>更新时间</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>说明</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </nz-table>
+
+    </div>
+</div>
+
+<ng-template #noResult></ng-template>
+
+<nz-modal nzWidth="865px" [(nzVisible)]="isVisible" nzTitle="新增选择项" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <div class="compile-left">
+        <div class="compile-left-box">
+            <label for="">上级选项：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">是否归档：</label>
+            <nz-radio-group class="rxa" [(ngModel)]="radioValue" [nzButtonStyle]="'solid'">
+                <label nz-radio-button nzValue="A">有效</label>
+                <label nz-radio-button nzValue="B">无效</label>
+            </nz-radio-group>
+        </div>
+        <div class="compile-left-box">
+            <label for="">层级数：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">层内顺序：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">财务名称：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">保留数值型：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+    </div>
+
+    <div class="compile-right">
+        <div class="compile-left-box">
+            <label for="">* 选择项名称：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">* 显示名称：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">选择项值：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">财务编码：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">保留字符串型：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+        <div class="compile-left-box">
+            <label for="">角色名称：</label>
+            <input nz-input placeholder="" [(ngModel)]="value">
+        </div>
+    </div>
+</nz-modal>
+
+
+<!-- <dynamic [dynamic]="selectParamSubQuery" *ngIf="selectParamSubQuery"></dynamic>
+ -->
+<!-- 系统参数 -->
+<!-- <dynamic [alias]="'zorro-col-string'" [value]="'123'"></dynamic> -->
+
+<page [fullname]="'Cucr.CucrSaas.Web.Dvo.SystemSelectPage'"></page>

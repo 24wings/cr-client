@@ -1,0 +1,69 @@
+.div-title{
+  border: 1px solid #EBEBF5;
+  color: #333!important;
+  border-bottom: 1px solid white;
+  height: 51px;
+  background: white;
+  font-weight: 900
+}
+#day{margin: 20px;background: white;margin-right: 0;overflow: auto}
+.dayl{float: left;width: 40%;background: white;border-right: 1px solid #EBEBF5;}
+.dayr{float: left;width: 60%;}
+.dayl-div1{height: 50px;line-height: 50px;border-bottom: 1px solid #ebebf5;}
+.dayl-div1>span{padding: 0 20px;font-size: 14px;color: #808080;display: inline-block;cursor: pointer;}
+.dayl-div1>span:first-child{margin-left: -4px;}
+.div1dl>dd{padding: 20px;
+  margin: 0;
+  border-bottom: 1px dashed #EBEBF5;cursor: pointer;}
+.div1dldiv1 {
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  width: 50px;
+  border-radius: 50%;
+}
+.div1dldiv2{display: inline-block;margin-left: 10px;}
+p{margin: 0}
+.name{font-size: 14px;color: #337CFB}
+.date{font-size: 14px;color: #333;font-weight: 900}
+.describe{font-size: 14px;color: #808080}
+.div1dldiv2>p{margin-bottom: 4px}
+.select{background: #fafafc}
+
+.dayr1{ padding: 20px;
+  border-bottom: 1px solid #EBEBF5;height: 90px;}
+.dayr1>div{float: left;width: 200px;}
+.dayr1>span{float: right;}
+.dayr1>div>div{margin-right: 10px}
+.dayr2{    clear: both;
+  text-indent: 20px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #EBEBF5;}
+.dayr3-div1{    margin-top: 20px;
+  margin-bottom: 20px;}
+.dayr3-div1>span:first-child{color: #808080;font-size: 12px;padding: 0 20px}
+.dayr3-div1>span:last-child{color: #333;font-size: 14px;}
+.dayr3-div2{margin: 20px}
+.dayr3-div2>button{    float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;}
+.dayr3-div3{float: left;
+  width: 100%;}
+.dayr3-div3>dl>dd{float: left;
+  width: 100%;border-bottom: 1px dashed #EBEBF5;
+  padding-bottom: 20px;padding-top: 20px}
+.daydivimg{margin-left: 20px;margin-right: 10px}
+.day3p{margin-right: 20px;color: #808080;
+  font-size: 12px;margin-top: 5px}
+.userp{color: #337CFB;
+  font-size: 14px;margin-top: 5px}
+.descp{color: #333;
+    font-size: 14px;
+  margin-top: 5px}
+.dayr1p{    margin-top: 5px;
+  margin-bottom: 5px;
+  color: #337CFB;
+}
+.dayr1>div>p:last-child{color: #333;font-weight: 900;font-size: 14px}

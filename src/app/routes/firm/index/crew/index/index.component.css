@@ -1,0 +1,65 @@
+#crew-nav{width: 100%;height: 60px;background: #f5f5fa;border-bottom: 1px solid #E1E1EB;float: left;}
+#crew-nav>h4{float: left;color: #333;
+    font-size: 18px;
+    line-height: 60px;
+    margin-bottom: 0;
+    text-indent: 20px;}
+#crew-nav>ul{float:right;    height: 60px;
+    line-height: 60px;
+    margin-right: 20px;
+    color: #999;
+    font-size: 14px;}
+#crew-nav>ul>li{float: left;}
+
+
+#crew-con{width: 100%;background: #f5f5fa;float: left;overflow: auto;}
+#crew{overflow: hidden}
+#crew-con>div{margin: 20px;}
+.searchDiv{float: right;}
+.crew-sx{background: white;padding: 20px;padding-bottom: 0}
+.mr20px{    margin-right: 20px;float: left;margin-top: 5px}
+.nzRadio>label{margin-bottom: 20px}
+.tableDiv{background: white}
+table{width: 100%;
+    text-align: center;}
+thead>tr{height: 50px;}
+td>span{border: 1px solid #DCDCE6;
+    margin-right: 8px;
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+    line-height: 30px;
+    border-radius: 4px;
+    cursor: pointer;}
+tbody>tr{height: 60px;}
+tbody>tr:nth-child(odd){
+    background: #f5f5fa
+}
+.jobNav{width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    border-radius: 50%;}
+.jobName{color: #333;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;}
+.jobPost{color: #999;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px}
+.label{    width: 24%;
+    display: inline-block;
+    text-align: right;}
+.input{width: 60%;}
+.labelSelect{margin-top: 20px;}
+.reth3{    color: #FA5644;
+    font-size: 24px;
+    text-align: center;
+    }
+.reth4{text-align: center;
+    color: #808080;
+    font-size: 14px;}
+button{height:30px}

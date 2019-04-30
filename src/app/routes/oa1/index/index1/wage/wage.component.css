@@ -1,0 +1,59 @@
+.wage {
+  /*background: #fef;*/
+  margin: 20px;
+  height: 800px;
+  width: max-content;
+  border-radius: 4px;
+  margin-top: 0;
+}
+#crew-con{overflow: auto}
+.wage-nav {
+  height: 100px;
+  background: white;
+  border-left: 6px solid transparent;
+}
+.wage-info, .wage-info > li {
+  float: left
+}
+.wage-user{height:50px;line-height:50px;margin-bottom:0}
+  .wage-user > span:first-child {
+    color: #333333;
+    font-size:16px;
+    margin:0 20px
+  }
+  .wage-user>span:last-child{
+    color:#333;
+    font-size:14px;
+  }
+.wage-info > li {
+  padding:0 20px;
+  width: 168px;
+    text-align: center;
+}
+.wage-nav, .wage-info{margin-right:20px}
+.wage-info {
+  margin-left: 20px;
+  border-top: 1px solid #ccc;
+  height: 50px;
+  line-height: 50px;
+}
+.wage-info>li:first-child{padding-left:0}
+  .wage-info > li:nth-child(2n) {
+    background: #f5f5fa;
+  }
+.wage-list {
+  background: white;
+  float: left;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+.wage-list>h4>span:last-child{font-size:12px;color:#808080}
+.wage-div:nth-child(n) > .wage-list {
+  border-left: 6px solid #337CFB;
+}
+.wage-div:nth-child(2n) > .wage-list {
+  border-left: 6px solid #FF9400;
+}
+/*.wage-div:nth-child(2n+1) > .wage-list {
+  border-left: 6px solid #F02626;
+}*/

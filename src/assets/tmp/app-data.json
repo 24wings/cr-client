@@ -1,0 +1,69 @@
+{
+    "app": {
+        "name": "Alain",
+        "description": "Ng-zorro admin panel front-end framework"
+    },
+    "user": {
+        "name": "Admin",
+        "avatar": "./assets/tmp/img/avatar.jpg",
+        "email": "cipchk@qq.com"
+    },
+    "menu": [{
+        "children": [{
+                "text": "欢迎页",
+                "icon": "anticon anticon-user",
+                "link": "/welcome"
+            },
+            {
+                "text": "客户管理",
+                "icon": "anticon anticon-appstore",
+                "link": "/style/typography"
+            },
+            {
+                "text": "合同管理",
+                "icon": "anticon anticon-edit",
+                "link": "/dashboard/workplace"
+            },
+            {
+                "text": "采购管理",
+                "icon": "anticon anticon-shopping-cart",
+                "link": "/dashboard/monitor"
+            },
+            {
+                "text": "项目管理",
+                "icon": "anticon anticon-profile",
+                "link": "/dashboard/v1"
+            },
+            {
+                "text": "预算管理",
+                "icon": "anticon anticon-bulb",
+                "link": "/dashboard/analysis"
+            },
+            {
+                "text": "报表管理",
+                "icon": "anticon anticon-pie-chart",
+                "link": "/style/gridmasonry"
+            },
+            {
+                "text": "知识管理",
+                "icon": "anticon anticon-book",
+                "link": "/delon/form"
+            },
+            {
+                "text": "协同OA",
+                "icon": "anticon anticon-cloud",
+                "link": "/oa1/index"
+            }, {
+                "text": "工作流",
+                "icon": "anticon anticon-swap",
+                "link": "/workflow/"
+            },
+            {
+                "text": "系统参数",
+                "icon": "anticon anticon-tag-o",
+                "link": "/system-setting/"
+            }
+
+        ]
+    }]
+}

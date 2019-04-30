@@ -1,0 +1,62 @@
+.tissue-nav {
+    width: 100%;
+    height: 60px;
+    background: #f5f5fa;
+    border-bottom: 1px solid #E1E1EB;
+    float: left;
+}
+
+.tissue-nav>h4 {
+    float: left;
+    color: #333;
+    font-size: 18px;
+    line-height: 60px;
+    margin-bottom: 0;
+    text-indent: 20px;
+}
+
+.tissue-nav>ul {
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+.tissue-nav>ul>li {
+    float: left;
+}
+
+#tissue-con {
+    width: 100%;
+    background: #f5f5fa;
+    float: left;
+    overflow: auto;
+}
+
+#tissue {
+    overflow: hidden
+}
+
+#tissue-con>div {
+    margin: 20px;
+}
+
+.searchDiv {
+    float: right;
+}
+
+.tissue-tree {
+    background: white
+}
+
+button {
+    height: 30px
+}
+
+.searchDiv-compile {
+    display: inline;
+    margin-right: 8px;
+    margin-left: 8px;
+}

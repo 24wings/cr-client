@@ -1,0 +1,110 @@
+#con{height: 900px;
+background: white;
+margin: 20px;
+margin-top: 0;margin-right: 0;overflow: auto;}
+.i-end-c{display: block;
+width: 16px;
+height: 16px;
+background: #337CFB;
+border-radius: 2px;
+float: left;
+margin-top: 2px;
+margin-right: 8px;}
+.i-for-c{display: block;
+width: 16px;
+height: 16px;
+background:#FF9400;
+border-radius: 2px;
+float: left;
+margin-top: 2px;
+margin-right: 8px;}
+.i-make-c{display: block;
+width: 16px;
+height: 16px;
+background:#00C181;
+border-radius: 2px;
+float: left;
+margin-top: 2px;
+margin-right: 8px;}
+.i-font{float: left;font-style: normal;margin-right: 14px}
+.meetNavl{float: left;margin-left: 20px;
+  margin-top: 20px;}
+.meetNavr{float: right;margin-right: 20px;
+  margin-top: 20px;}
+.meetNav{float: left;width: 100%}
+.mf6{margin-top: 6px;
+  float: left;}
+.datePicker{margin-right: 20px}
+.modelp{float: left;width: 50%}
+.modelp1{width: 100%}
+.modelp>label,.modelp1>label{width: 66px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 6px;}
+.modelp>input,.datePick{width:295px;}
+.nameTime{margin-top: 20px;
+  border-bottom: 1px solid #EBEBF5;
+  border-top: 1px solid #EBEBF5;
+  float: left;
+  width: 100%;height: 46px;
+  line-height: 46px;font-size: 14px;color: #333}
+.nameDiv{float: left;width: 25%;text-indent: 22px}
+.timediv{float: left;width: 75%;height: 100%;position: relative;}
+.timediv>dl{float: left;width: 100%;height: 100%;}
+.timediv>dl>dd{float: left;width: 10%;text-align: center;border-left:1px solid #EBEBF5;height: 100%;}
+.conDiv{border-bottom: 1px solid #EBEBF5;
+  float: left;
+  width: 100%;height: 46px;
+  line-height: 46px;font-size: 14px;color: #333}
+.meetp{height: 40px;
+  position: absolute;
+  line-height: 40px;
+  text-indent: 18px;
+  padding-right: 20px!important;
+  top: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border:1px solid transparent;padding: 0}
+.end-dd-p{background: rgba(231,235,250,1);
+  border-left: 4px solid #337CFB;
+  color: #337CFB;}
+.for-dd-p{background:#FFF5E8;
+  border-left: 4px solid #FF9400;
+  color: #FF9400;}
+.make-dd-p{background:#E6F8EF;
+    border-left: 4px solid #00C181;
+    color: #00C181;}
+.meetImg{width: 50px;height: 50px;    background-size: cover;
+      background-position: center;border-radius: 50px;float: left;}
+.meetInfo>p{margin-bottom: 0}
+.meetInfo>p:first-child{margin-bottom: 5px}
+.meetInfo>p:last-child{margin-left: 10px}
+.meetInfo>p>span:first-child{    margin-left: 10px;
+  margin-right: 10px;
+  color: #337CFB;
+  font-size: 14px;}
+.meetInfo{margin-top: 5px}
+.divMeet>div{    margin-left: -16px;float: left;}
+.divMeet>div:first-child{margin-left: 0}
+.tableDiv>tbody>tr>td{width:60px;}
+.tableDiv>tbody>tr>td>div{margin:0 auto;clear: both;}
+.tableDiv>tbody>tr>td>p{text-align:center}
+.template-p,.template-h3{width: 240px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;}
+.template-div2>p{margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #E6E6F0;}
+.datePick1{width: 301px;}
+.nameBtns{float: right;
+  margin-right: 2%;
+  margin-top: 8px;
+  width: 38%;text-align: center;}
+.nameTitleSpan{display:block;
+  float: left;
+  width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;}

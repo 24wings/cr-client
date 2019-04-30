@@ -1,0 +1,598 @@
+<div id="crew-add">
+    <div class="attendance-nav">
+        <div class="attendance-nav-div1 fl">
+          <i>考勤管理</i>
+          <em class="menuUls abcs" nz-menu [nzMode]="mode">
+            <!--<span class="select-border" (click)="to()">上下班考勤</span>
+            <span>外勤打卡</span>
+            <span>考勤统计</span>
+            <span>工资条</span>-->
+            <span *ngFor="let m of menus" nz-menu-item [nzSelected]="m.selected" (click)="to(m)">
+              {{m.title}}
+            </span>
+          </em>
+        </div>
+        <div class="attendance-nav-div2 fr">
+          <span>首页</span>
+          <span>></span>
+          <span>协同OA </span>
+          <span>></span>
+          <span>考勤管理</span>
+        </div>
+      </div>
+
+  <div id="crew-nav">
+    <h4>人员管理</h4>
+    <ul>
+      <li>首页</li>
+      <li>></li>
+      <li>企业信息</li>
+      <li>></li>
+      <li>人员管理</li>
+      <li>></li>
+      <li>添加人员</li>
+    </ul>
+  </div>
+  <div class="crewAddC" id="crew-con">
+      <div>
+        <!-- 基本信息 -->
+        <div class="basicInfo" nz-row [nzGutter]="24">
+          <div class="basicInfoL"  nz-col nzXs="3" nzSm="3" nzMd="3" nzLg="3">
+            <div  [ngStyle]="{'background-image':'url(../../../../../../assets/img/1.jpg)'}" ></div>
+            <nz-upload class="basicImg" nzAction="/user/avatar" [nzShowUploadList]="false">
+              <button nz-button class="button_view">
+                <i nz-icon type="upload"></i>
+                <span>更换头像</span>
+              </button>
+            </nz-upload>
+          </div>
+          <div class="basicInfoR" nz-col nzXs="21" nzSm="21" nzMd="21" nzLg="21">
+            <div class="userName">
+              <!--存储用户ID-->
+              <input type="text" class="select" [(ngModel)]="userid"  style=" display:none">
+              <input type="text" class="select" [(ngModel)]="name" placeholder="请输入姓名">
+              <span class="fr basicInfoSave" (click)="UserSave()">保存</span>
+            </div>
+            <div class="department">
+              <!--<select>
+                    <option value="0" selected>部门</option>
+                    <option value="1">一部门</option>
+                    <option value="2">二部门</option>
+                  </select>
+                  <select>
+                      <option value="0" selected>职位</option>
+                      <option value="1">一职位</option>
+                      <option value="2">二职位</option>
+                    </select>-->
+              <div class="labelSelect">
+                <label class="label">部门：</label>
+                <nz-select class="input" [(ngModel)]="JobPostId" nzAllowClear nzPlaceHolder="Choose" (ngModelChange)="BindGw()">
+                  <nz-option *ngFor="let m of branchList" nzValue="{{m.id}}" nzLabel="{{m.department}}"></nz-option>
+                </nz-select>
+              </div>
+              <div class="labelSelect">
+                <label class="label">岗位：</label>
+                <nz-select class="input" [(ngModel)]="PostId" nzAllowClear nzPlaceHolder="Choose" >
+                  <nz-option *ngFor="let m of PostList" nzValue="{{m.id}}" nzLabel="{{m.position}}"></nz-option>
+                </nz-select>
+              </div>
+            </div>
+            <div class="infoDis">
+              <dl>
+                <dd>
+                  <ul>
+                    <li>
+                      <span>工号：</span>
+                      <input class="borderBg" type="text" disabled="disabled" placeholder="无需输入，自动生成" [(ngModel)]="JobNumber">
+                    </li>
+                    <li>
+                      <span>登录帐号：</span>
+                      <input class="borderBg" placeholder="无需输入，自动生成" type="text" disabled="disabled" [(ngModel)]="LoginAccount">
+                    </li>
+                    <li>
+                      <span>QQ：</span>
+                      <input type="text" [(ngModel)]="QQNumber">
+                    </li>
+                    <li>
+                      <span>是否启用：</span>
+                      <nz-select [(ngModel)]="Enable">
+                        <nz-option nzValue="1" nzLabel="启用"></nz-option>
+                        <nz-option nzValue="0" nzLabel="禁用"></nz-option>
+                      </nz-select>
+                    </li>
+                  </ul>
+                </dd>
+                <dd>
+                  <ul>
+                    <li>
+                      <span>入职日期：</span>
+                      <nz-date-picker [(ngModel)]="RzDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+                    </li>
+                    <li>
+                      <span>手机：</span>
+                      <input type="text" [(ngModel)]="phone">
+                    </li>
+                    <li>
+                      <span>微信：</span>
+                      <input type="text" [(ngModel)]="WeiXinNumber">
+                    </li>
+                    <li>
+                      <span>是否超级用户：</span>
+                      <nz-select [(ngModel)]="SuperUser">
+                        <nz-option nzValue="0" nzLabel="否"></nz-option>
+                        <nz-option nzValue="1" nzLabel="是"></nz-option>
+                      </nz-select>
+                    </li>
+                  </ul>
+                </dd>
+                <dd>
+                  <ul>
+                    <li>
+                      <span>转正日期：</span>
+                      <nz-date-picker [(ngModel)]="ZzDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+                    </li>
+                    <li>
+                      <span>电话：</span>
+                      <input type="text" [(ngModel)]="Telephone">
+                    </li>
+                    <li>
+                      <span>性别：</span>
+                      <nz-select [(ngModel)]="sex">
+                        <nz-option nzValue="1" nzLabel="男"></nz-option>
+                        <nz-option nzValue="2" nzLabel="女"></nz-option>
+                      </nz-select>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <!-- 员工积分 -->
+        <div class="integral">
+          <span>员工积分</span>
+          <span class="fr basicInfoSave inSave" (click)="SkllSave()">保存</span>
+        </div>
+        <!-- 专业技能 -->
+        <div class="skills">
+          <span>专业技能</span>
+          <span class="fr basicInfoSave inSave" (click)="SkllSave()">保存</span>
+          <textarea class="skillsText" nz-input [nzAutosize]="{ minRows: 2, maxRows: 10 }" [(ngModel)]="SKll">
+          </textarea>
+        </div>
+        <!-- 使用设备 -->
+        <div class="equipment">
+          <span>使用设备</span>
+          <span class="fr basicInfoSave inSave" (click)="Addequipment()">添加</span>
+          <!-- 添加弹出窗 -->
+          <div *ngIf="equipment" class="editDiv" nz-row [nzGutter]="24">
+            <!--存储使用设备ID-->
+            <input type="text" class="select" [(ngModel)]="equipmentid" style=" display:none">
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">名称</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="eName">
+              </nz-form-control>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">数量</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="eNumber">
+              </nz-form-control>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">编号</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="No">
+              </nz-form-control>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">备注</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="Remarks">
+              </nz-form-control>
+            </div>
+            <div class="editBtn fr" nz-col nzXs="10" nzSm="10" nzMd="10" nzLg="10">
+              <button nz-button [nzSize]="large" nzType="primary" (click)="equipmentSave()">保存</button>
+              <button nz-button [nzSize]="large" nzType="default" (click)="equipment=!equipment">取消</button>
+            </div>
+          </div>
+          <!-- 展示区域 -->
+          <table>
+              <thead>
+                <tr>
+                  <th>设备名称</th>
+                  <th>数量</th>
+                  <th>编号</th>
+                  <th>备注</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let m of Equipmentmenus">
+                  <!--<td>{{m.id}}</td>-->
+                  <td>{{m.eName}}</td>
+                  <td>{{m.eNumber}}</td>
+                  <td>{{m.No}}</td>
+                  <td>{{m.Remarks}}</td>
+                  <td>
+                    <span class="equipmentEdit" (click)="UpdateEquipment(m)">编辑</span>
+                    <span class="equipmentDelete" (click)="DeleteEquipment(m.id)">删除</span>
+                  </td>
+                </tr>
+                <!--<tr>
+                  <td>电脑显示器</td>
+                  <td>1</td>
+                  <td>A20140501001</td>
+                  <td>戴尔（DELL） U2417H 23.8英寸四边微边框旋转升降IPS屏 出厂色彩校准 99%sRGB 显示器</td>
+                  <td>
+                    <span class="equipmentEdit">编辑</span>
+                    <span class="equipmentDelete">删除</span>
+                  </td>
+                </tr>-->
+              </tbody>
+            </table>
+            
+        </div>
+        <!-- 工作经历 -->
+        <div class="experience">
+          <span>工作经历</span>
+          <span class="fr basicInfoSave inSave" (click)="AddexpandForm()">添加</span>
+          <!-- 添加弹出窗 -->
+          <div *ngIf="expandForm" class="editDiv" nz-row [nzGutter]="24">
+            <!--存储工作经历ID-->
+            <input type="text" class="select" [(ngModel)]="Workid" style=" display:none">
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">公司</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="work_CompanyName">
+              </nz-form-control>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">部门</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="work_department">
+              </nz-form-control>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">职位</nz-form-label>
+              <nz-form-control class="input">
+                <input nz-input placeholder="请输入" [(ngModel)]="work_position">
+              </nz-form-control>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">开始时间</nz-form-label>
+              <nz-date-picker [(ngModel)]="work_BeginDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+            </div>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">结束时间</nz-form-label>
+              <nz-date-picker [(ngModel)]="work_EndDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+            </div>
+            <div class="editBtn fr" nz-col nzXs="10" nzSm="10" nzMd="10" nzLg="10">
+              <button nz-button [nzSize]="large" nzType="primary" (click)="SaveWork()">保存</button>
+              <button nz-button [nzSize]="large" nzType="default" (click)="expandForm=!expandForm">取消</button>
+            </div>
+          </div>
+          <!-- 展示区域 -->
+          <ul class="experienceUl" *ngFor="let m of Workmenus">
+            <li class="experienceLi">
+              <span class="expSpan1">{{m.CompanyName}}</span>
+              <span class="expSpan2">{{m.m1}}</span>
+              <span class="expSpan3">{{m.m2}}</span>
+              <span class="fr editBtn" (click)="UpdateWork(m)">编辑</span>
+              <span class="fr deleteBtn" (click)="DeleteWork(m.id)">删除</span>
+            </li>
+           
+          </ul>
+        </div>
+        <!-- 教育背景 -->
+        <div class="edu">
+            <span>教育背景</span>
+            <span class="fr basicInfoSave inSave" (click)="Addedu()">添加</span>
+            <!-- 添加弹出窗 -->
+            <div *ngIf="edu" class="editDiv" nz-row [nzGutter]="24">
+              <!--存储教育背景ID-->
+              <input type="text" class="select" [(ngModel)]="Eduid" style=" display:none">
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">学校</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="EduSchoolName">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">院系</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="Educourtyard">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">专业</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="Edumajor">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">开始时间</nz-form-label>
+                <nz-form-control class="input">
+                  <nz-date-picker [(ngModel)]="EduBeginDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">结束时间</nz-form-label>
+                <nz-form-control class="input">
+                  <nz-date-picker [(ngModel)]="EduEedDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+                </nz-form-control>
+              </div>
+              <div class="editBtn fr" nz-col nzXs="10" nzSm="10" nzMd="10" nzLg="10">
+                <button nz-button [nzSize]="large" nzType="primary" (click)="Saveeducation()">保存</button>
+                <button nz-button [nzSize]="large" nzType="default" (click)="edu=!edu">取消</button>
+              </div>
+            </div>
+            <!-- 展示区域 -->
+            <ul class="eduUl">
+              <li class="eduLi" *ngFor="let m of Educationmenus">
+                <span class="eduSpan1">{{m.SchoolName}}</span>
+                <span class="eduSpan2">{{m.m1}}</span>
+                <span class="eduSpan3">{{m.m2}}</span>
+                <span class="fr editBtn" (click)="Updateeducation(m)">编辑</span>
+                <span class="fr deleteBtn" (click)="Deleteeducation(m.id)">删除</span>
+              </li>
+              <!--<li class="eduLi">
+                <span class="eduSpan1">华中科技大学</span>
+                <span class="eduSpan2">理工学院 / 计算机科学与技术</span>
+                <span class="eduSpan3">2016年1月 - 2018年3月</span>
+                <span class="fr deleteBtn">删除</span>
+                <span class="fr editBtn">编辑</span>
+              </li>-->
+            </ul>
+        </div>
+        <!-- 培训经历 -->
+        <div class="train">
+            <span>培训经历</span>
+            <span class="fr basicInfoSave inSave" (click)="Addtrainexperience()">添加</span>
+            <!-- 添加弹出窗 -->
+            <div *ngIf="train" class="editDiv" nz-row [nzGutter]="24">
+              <!--存储培训经历ID-->
+              <input type="text" class="select" [(ngModel)]="traid" style=" display:none">
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">机构</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="traSchoolName">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">课程</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="tramajor">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">内容</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="tracontent">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">开始时间</nz-form-label>
+                <nz-form-control class="input">
+                  <nz-date-picker [(ngModel)]="traBeginDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">结束时间时间</nz-form-label>
+                <nz-form-control class="input">
+                  <nz-date-picker [(ngModel)]="traEndDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+                </nz-form-control>
+              </div>
+              <div class="editBtn fr" nz-col nzXs="10" nzSm="10" nzMd="10" nzLg="10">
+                <button nz-button [nzSize]="large" nzType="primary" (click)="trainexperienceSave()">保存</button>
+                <button nz-button [nzSize]="large" nzType="default" (click)="train=!train">取消</button>
+              </div>
+            </div>
+            <!-- 展示区域 -->
+            <ul class="trainUl">
+              
+              <li class="trainLi" *ngFor="let m of trainexperiencemenus">
+                <span class="eduSpan1">{{m.SchoolName}}</span>
+                <span class="eduSpan2">{{m.m1}}</span>
+                <span class="eduSpan3">{{m.m2}}</span>
+                <span class="fr deleteBtn" (click)="Deletetrainexperience(m.id)">删除</span>
+                <span class="fr editBtn" (click)="Updatetrainexperience(m)">编辑</span>
+              </li>
+              <!--<li class="trainLi">
+                <span class="trainSpan1">优设大课堂</span>
+                <span class="trainSpan2">交互设计基础训练营 / 交互设计</span>
+                <span class="trainSpan3">2016年1月 - 2018年3月</span>
+                <span class="fr deleteBtn">删除</span>
+                <span class="fr editBtn">编辑</span>
+              </li>-->
+            </ul>
+        </div>
+        <!-- 其他信息 -->
+        <div class="other">
+          <span>其他信息</span>
+          <span class="fr basicInfoSave inSave" (click)="Updateother()">编辑</span>
+          <!-- 添加弹出窗 -->
+          <div *ngIf="other" class="editDiv" nz-row [nzGutter]="24">
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+              <nz-form-label class="label">证件类型</nz-form-label>
+              <!--<nz-form-control class="input">
+                <input nz-input placeholder="请输入">
+              </nz-form-control>-->
+              <nz-select [(ngModel)]="DocumentType">
+                <nz-option nzValue="0" nzLabel="身份证"></nz-option>
+                <nz-option nzValue="1" nzLabel="护照"></nz-option>
+                <nz-option nzValue="2" nzLabel="军官证"></nz-option>
+                <nz-option nzValue="3" nzLabel="其他"></nz-option>
+              </nz-select>
+            </div>
+              <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">证件号码</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="DocumentNumber">
+                </nz-form-control>
+              </div>
+              <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">婚姻状况</nz-form-label>
+                <!--<nz-form-control class="input">
+                  <input nz-input placeholder="请输入">
+                </nz-form-control>-->
+                <nz-select [(ngModel)]="HYStatus">
+                  <nz-option nzValue="0" nzLabel="未婚"></nz-option>
+                  <nz-option nzValue="1" nzLabel="已婚"></nz-option>
+                  <nz-option nzValue="2" nzLabel="离异"></nz-option>
+                </nz-select>
+              </div>
+              <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                <nz-form-label class="label">现住地址</nz-form-label>
+                <nz-form-control class="input">
+                  <input nz-input placeholder="请输入" [(ngModel)]="address">
+                </nz-form-control>
+              </div>
+              <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">生日</nz-form-label>
+                  <nz-form-control class="input">
+                    <nz-date-picker [(ngModel)]="birth" (ngModelChange)="onChange($event)"></nz-date-picker>
+                  </nz-form-control>
+              </div>
+              <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">电子邮箱</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="mail">
+                  </nz-form-control>
+              </div>
+              <p class="contact">紧急联系人1</p>
+              <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">姓名</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson1Name">
+                  </nz-form-control>
+                </div>
+                <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">电话</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson1Phone">
+                  </nz-form-control>
+                </div>
+                <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">关系</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson1relationship">
+                  </nz-form-control>
+                </div>
+                <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">所在地</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson1Address">
+                  </nz-form-control>
+                </div>
+              <p class="contact">紧急联系人2</p>
+              <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">姓名</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson2Name">
+                  </nz-form-control>
+                </div>
+                <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">电话</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson2Phone">
+                  </nz-form-control>
+                </div>
+                <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">关系</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson2relationship">
+                  </nz-form-control>
+                </div>
+                <div  nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12">
+                  <nz-form-label class="label">所在地</nz-form-label>
+                  <nz-form-control class="input">
+                    <input nz-input placeholder="请输入" [(ngModel)]="urgentPerson2Address">
+                  </nz-form-control>
+                </div>
+              <div class="editBtn fr" nz-col nzXs="10" nzSm="10" nzMd="10" nzLg="10">
+                  <button nz-button [nzSize]="large" nzType="primary" (click)="SaveUserOthon()">保存</button>
+                  <button nz-button [nzSize]="large" nzType="default" (click)="QXUserOthon()">取消</button>
+              </div>
+          </div>
+          <!-- 展示区域 -->
+          <div >
+            <div class="infoDis otherDiv">
+                <dl>
+                  <dd>
+                    <ul>
+                      <li>
+                        <span>证件类型：</span>
+                        <!--<span>身份证</span>-->
+                        <nz-select [(ngModel)]="DocumentTypeText">
+                          <nz-option nzValue="0" nzLabel="身份证"></nz-option>
+                          <nz-option nzValue="1" nzLabel="护照"></nz-option>
+                          <nz-option nzValue="2" nzLabel="军官证"></nz-option>
+                          <nz-option nzValue="3" nzLabel="其他"></nz-option>
+                        </nz-select>
+                      </li>
+                      <li>
+                        <span>婚姻状况：</span>
+                        <!--<span>未婚</span>-->
+                        <nz-select [(ngModel)]="HYStatusText">
+                          <nz-option nzValue="0" nzLabel="未婚"></nz-option>
+                          <nz-option nzValue="1" nzLabel="已婚"></nz-option>
+                          <nz-option nzValue="2" nzLabel="离异"></nz-option>
+                        </nz-select>
+                      </li>
+                      <li>
+                        <span>紧急联系人1：</span>
+                        <span>{{urgentPerson1Text}}</span>
+                      </li>
+                    </ul>
+                  </dd>
+                  <dd>
+                    <ul>
+                      <li>
+                        <span>证件号码：</span>
+                        <span>{{DocumentNumberText}}</span>
+                      </li>
+                      <li>
+                        <span>现住地址：</span>
+                        <span>{{addressText}}</span>
+                      </li>
+                      <li>
+                          <span>紧急联系人2：</span>
+                          <span>{{urgentPerson2Text}}</span>
+                        </li>
+                    </ul>
+                  </dd>
+                  <dd>
+                    <ul>
+                      <li>
+                        <span>生日：</span>
+                        <nz-date-picker [(ngModel)]="birthText" (ngModelChange)="onChange($event)"></nz-date-picker>
+                      </li>
+                      <li>
+                          <span>电子邮箱：</span>
+                          <span>{{urgentPerson2Text}}</span>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+            </div>
+          </div>
+        </div>
+      <!-- <div class="crewAddl scrollable-container">
+        <router-outlet></router-outlet>
+      </div> -->
+      <!-- <div class="crewAddR">
+        <ul class="menuUl" nz-menu [nzMode]="mode">
+          <li *ngFor="let m of menus" nz-menu-item [nzSelected]="m.selected" (click)="to(m)">
+            {{m.title}}
+          </li>
+        </ul>
+        <nz-anchor>
+          <nz-link nzHref="#index1" nzTitle="index1"></nz-link>
+          <nz-link nzHref="#index2" nzTitle="index2"></nz-link>
+          <nz-link nzHref="#index3" nzTitle="index3"></nz-link>
+        </nz-anchor>
+      </div> -->
+  </div>
+</div>

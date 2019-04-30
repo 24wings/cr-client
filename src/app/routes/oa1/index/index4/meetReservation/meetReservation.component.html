@@ -1,0 +1,301 @@
+<nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+  <div id="con">
+    <!-- 头部查询部分 -->
+    <div class="meetNav">
+      <div class="meetNavl">
+        <nz-date-picker class="datePicker" [(ngModel)]="date" (ngModelChange)="DataBind()"></nz-date-picker>
+        <span>基础设施：{{facil[0].facilities}}</span>
+        <span style="margin-left: 20px">最大容纳人数：{{facil[0].MaxNumber}}</span>
+      </div>
+      <div class="meetNavr">
+        <span class="mf6">
+          <i>
+            <i class="i-end-c"></i>
+          </i>
+          <i class="i-font">
+            已结束
+          </i>
+        </span>
+        <span class="mf6">
+          <i>
+            <i class="i-for-c"></i>
+          </i>
+          <i class="i-font">
+            进行中
+          </i>
+        </span>
+        <span class="mf6">
+          <i>
+            <i class="i-make-c"></i>
+          </i>
+          <i class="i-font">
+            已预约
+          </i>
+        </span>
+        <button nz-button nzType="primary" (click)="showModal()">会议室预定</button>
+
+        <nz-modal class="meetr" [(nzVisible)]="isVisible" nzTitle="会议创建" (nzOnCancel)="handleCancel()" nzCancelText="取消" nzOkText="确认" (nzOnOk)="handleOk()">
+          <div class="nzmodal">
+            <p class="modelp">
+              <label>会议室:</label>
+              <nz-select style="width: 300px;" [(ngModel)]="selectedValue1" nzAllowClear nzPlaceHolder="Choose">
+                <nz-option *ngFor="let option of ConferenceRoomList" [nzValue]="option" [nzLabel]="option.conferenceName"></nz-option>
+              </nz-select>
+            </p>
+            <p class="modelp">
+              <label>标题:</label>
+              <input nz-input [(ngModel)]="title" />
+            </p>
+            <p class="modelp">
+              <label>日期:</label>
+              <nz-date-picker class="datePick" [(ngModel)]="date"></nz-date-picker>
+            </p>
+            <p class="modelp">
+              <label>开始时间:</label>
+              <nz-select  class="datePick1" [(ngModel)]="BeginTime" (ngModelChange)="timeYZ()" nzAllowClear nzPlaceHolder="Choose">
+                <nz-option *ngFor="let option of TimeList" [nzValue]="option" [nzLabel]="option.time"></nz-option>
+              </nz-select>
+            </p>
+            <p class="modelp">
+              <label>结束时间:</label>
+              <nz-select  class="datePick1" [(ngModel)]="EndTime" (ngModelChange)="timeYZ()" nzAllowClear nzPlaceHolder="Choose">
+                <nz-option *ngFor="let option of TimeList" [nzValue]="option" [nzLabel]="option.time"></nz-option>
+              </nz-select>
+            </p>
+            <p class="modelp">
+              <label>所属项目:</label>
+              <input nz-input [(ngModel)]="project" />
+            </p>
+
+            <p class="modelp">
+              <label>部门:</label>
+              <nz-select style="width: 300px;" [(ngModel)]="selectedValue2" nzAllowClear nzPlaceHolder="Choose">
+                <nz-option *ngFor="let option of partmentList" [nzValue]="option" [nzLabel]="option.department"></nz-option>
+              </nz-select>
+            </p>
+
+            <p class="modelp">
+              <label>参与人:</label>
+              <!--<nz-select nzMode="tags" style="width: 300px;" nzPlaceHolder="选择参与人" [(ngModel)]="cyr">
+                  <nz-option *ngFor="let option of cyrList" [nzLabel]="option.name" [nzValue]="option">
+                  </nz-option>
+                </nz-select>-->
+              <nz-tree-select style="width: 70%"
+                              nzPlaceHolder="选择"
+                              [nzDefaultExpandedKeys]="expandKeys"
+                              [nzDropdownMatchSelectWidth]="true"
+                              [(ngModel)]="cyr"
+                              nzCheckable
+                              [nzNodes]="nodes"
+                              [nzAsyncData]="true"
+                              (nzExpandChange)="onExpandChange($event)">
+              </nz-tree-select>
+            </p>
+            <p class="modelp">
+              <label>抄送:</label>
+                      <!--<nz-select nzMode="tags" style="width: 300px;" nzPlaceHolder="选择抄送人" [(ngModel)]="csr">
+            <nz-option *ngFor="let option of cyrList" [nzLabel]="option.name" [nzValue]="option">
+            </nz-option>
+          </nz-select>-->
+              <nz-tree-select style="width: 70%"
+                              nzPlaceHolder="选择"
+                              [nzDefaultExpandedKeys]="expandKeys"
+                              [nzDropdownMatchSelectWidth]="true"
+                              [(ngModel)]="csr"
+                              nzCheckable
+                              [nzNodes]="nodes"
+                              [nzAsyncData]="true"
+                              (nzExpandChange)="onExpandChange($event)">
+              </nz-tree-select>
+            </p>
+            <p class="modelp1" style="clear:both">
+              <label class="fl">会议内容:</label>
+              <textarea style="width: 670px;" class="roleText" nz-input nz-input rows="5" placeholder="请输入" [(ngModel)]="content"></textarea>
+            </p>
+          </div>
+        </nz-modal>
+      </div>
+    </div>
+    <div style="clear:both"></div>
+    <!-- 中部会议显示部分 -->
+    <div class="nameTime">
+      <!-- 头部 -->
+      <div class="nameDiv">
+        会议室名称
+      </div>
+      <div class="timediv">
+        <dl>
+          <dd>9:00</dd>
+          <dd>10:00</dd>
+          <dd>11:00</dd>
+          <dd>12:00</dd>
+          <dd>13:00</dd>
+          <dd>14:00</dd>
+          <dd>15:00</dd>
+          <dd>16:00</dd>
+          <dd>17:00</dd>
+          <dd>18:00</dd>
+        </dl>
+      </div>
+    </div>
+    <!-- 中部 -->
+    <!--<div class="conDiv">
+      <div class="nameDiv">
+        会议室名称1
+      </div>
+      <div class="timediv">
+        <dl>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+        </dl>
+        <p nz-button nz-popover (nzVisibleChange)="xq($event,id=12)" [nzContent]="contentTemplate1" nzPlacement="bottom" class="meetp end-dd-p" [ngStyle]="qq">关于小创众筹UI设计的讨论</p>
+        <ng-template #contentTemplate1>
+          <h3 class="template-h3" nzPlacement="bottom" nz-tooltip nzTitle="关于小创众筹UI设计的讨论">关于小创众筹UI设计的讨论</h3>
+          <p class="template-p" nzPlacement="bottom" nz-tooltip nzTitle="对已出的设计稿作一个评审与讨论从而对已出的设计稿作一个评审与讨论">对已出的设计稿作一个评审与讨论从而对已出的设计稿作一个评审与讨论</p>
+          <div class="template-div1">
+            <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+            <div class="meetInfo">
+              <p>
+                <span>刘昊然</span>
+                <span>发起人</span>
+              </p>
+              <p>心跳科技  /  IOS开发工程师</p>
+            </div>
+          </div>
+          <div class="template-div2">
+            <p>参加人员</p>
+            <table class="tableDiv">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮哥</p>
+                  </td>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                  <td>
+                    <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                    <p>皮皮哥</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>-->
+    <!--p class="meetp for-dd-p" style="left: 45%;width:10%">关于中创众筹UI设计的讨论</p>-->
+    <!--<p nz-button nz-popover [nzContent]="contentTemplate1" nzPlacement="bottom" class="meetp end-dd-p" style="left: 35%;width:18%">关于小创众筹UI设计的讨论</p>
+        <p class="meetp make-dd-p" style="left: 75%;width:18%">关于大创众筹UI设计的讨论</p>
+      </div>
+    </div>
+    <div class="conDiv">
+      <div class="nameDiv">
+        会议室名称2
+      </div>
+      <div class="timediv">
+        <dl>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+        </dl>
+        <p class="meetp end-dd-p" style="left: 3%;width: 20%">关于小创众筹UI111设计的讨论</p>
+        <p class="meetp for-dd-p" style="left: 48%;width:8%">关于中创众筹UI111设计的讨论</p>
+        <p class="meetp make-dd-p" style="left: 65%;width: 20%">关于大创众筹UI111设计的讨论</p>
+      </div>
+    </div>-->
+
+
+
+
+    <div class="conDiv" *ngFor="let option of BindList">
+      <div class="nameDiv">
+        <span class="nameTitleSpan" nzPlacement="bottom" nz-tooltip nzTitle={{option.conferenceName}}>
+          {{option.conferenceName}}
+        </span>
+        <button class="nameBtns" nz-button nzType="primary" (click)="Getfacilities(option.id)">查看基础设施</button>
+      </div>
+      <div class="timediv">
+        <dl>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+        </dl>
+        <div nz-button nz-popover [ngStyle]="op.styleList[0]" *ngFor="let op of option.childList" [nzContent]="contentTemplate1" nzPlacement="bottom" class="meetp end-dd-p">
+          {{op.title}}
+          <ng-template #contentTemplate1>
+            <h3 class="template-h3" nzPlacement="bottom" nz-tooltip nzTitle="{{op.title}}">标题：{{op.title}}</h3>
+            <p class="template-p" nzPlacement="bottom" nz-tooltip nzTitle="{{op.content}}">内容：{{op.content}}</p>
+            <div class="template-div1">
+              <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+              <div class="meetInfo">
+                <p>
+                  <span>发起人</span>
+                  <span>{{op.fqrname}}</span>
+                </p>
+                <p>{{op.fqrdepartment}}  /  {{op.fqrposition}}</p>
+              </div>
+            </div>
+            <div class="template-div2">
+              <p>参加人员</p>
+              <table class="tableDiv">
+                <tbody>
+                  <tr>
+                    <td *ngFor="let o of op.cyrList">
+                      <div class="meetImg" [ngStyle]="{'background-image':'url(http://dora-world.com/assets/images/wallpaper/PC_wallpaper_201901.png)'}"></div>
+                      <p>{{o.cyrname}}</p>
+                    </td>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nz-spin>

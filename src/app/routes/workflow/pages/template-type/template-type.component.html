@@ -1,0 +1,179 @@
+<div class="workflow-list-title">
+    <h2>模板类型</h2>
+    <div class="workflow-list-title-menu">
+        <span>首页</span> >
+        <span>工作流</span> >
+        <span>模板类型</span>
+    </div>
+</div>
+<div class="workflow-list-search">
+    <button nz-button nzType="primary" class="search-add-btn" (click)="showModal()"><i nz-icon nzType="plus" nzTheme="outline" ></i>新建模板类型</button>
+    <div class="workflow-list-search-right">
+        <nz-input-group nzCompact class="workflow-list-search-right">
+            <nz-select [ngModel]="'选择模板类型'" class="xiala">
+                <nz-option [nzLabel]="'Home'" [nzValue]="'选择模板类型'"></nz-option>
+                <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+            </nz-select>
+            <nz-input-group [nzSuffix]="suffixIconSearch" class="Search">
+                <input type="text" nz-input placeholder="工作流模板名称" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+                <i nz-icon type="search"></i>
+            </ng-template>
+        </nz-input-group>
+    </div>
+</div>
+
+<div class="workflow-template">
+    <div class="label-boxs">
+        <div class="workflow-template-title">
+            <label></label>
+            <p>项目终止申请-EH-01</p>
+        </div>
+        <nz-table #borderedTable nzBordered [nzShowPagination]="false" [nzData]="dataSet">
+            <tbody>
+                <tr>
+                    <td (click)="showModal()">销售合同订单-变更 </td>
+                    <td (click)="showModal()">采购合同订单-变更</td>
+                    <td (click)="showModal()">销售合同</td>
+                    <td (click)="showModal()">销售合同-追加</td>
+                    <td (click)="showModal()">销售合同-变更 </td>
+                </tr>
+                <tr>
+                    <td (click)="showModal()">采购合同 </td>
+                    <td (click)="showModal()">采购合同-追加</td>
+                    <td (click)="showModal()">采购合同-变更</td>
+                    <td (click)="showModal()"></td>
+                    <td (click)="showModal()"></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+    <div class="label-boxs">
+        <div class="workflow-template-title">
+            <label></label>
+            <p>项目终止申请-EH-01</p>
+        </div>
+        <nz-table #borderedTable nzBordered [nzShowPagination]="false" [nzData]="dataSet">
+            <tbody>
+                <tr>
+                    <td (click)="showModal()">销售合同订单-变更 </td>
+                    <td (click)="showModal()">采购合同订单-变更</td>
+                    <td (click)="showModal()">销售合同</td>
+                    <td (click)="showModal()">销售合同-追加</td>
+                    <td (click)="showModal()">销售合同-变更 </td>
+                </tr>
+                <tr>
+                    <td (click)="showModal()">采购合同 </td>
+                    <td (click)="showModal()">采购合同-追加</td>
+                    <td (click)="showModal()">采购合同-变更</td>
+                    <td (click)="showModal()"></td>
+                    <td (click)="showModal()"></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+    <div class="label-boxs">
+        <div class="workflow-template-title">
+            <label></label>
+            <p>项目终止申请-EH-01</p>
+        </div>
+        <nz-table #borderedTable nzBordered [nzShowPagination]="false" [nzData]="dataSet">
+            <tbody>
+                <tr>
+                    <td (click)="showModal()">销售合同订单-变更 </td>
+                    <td (click)="showModal()">采购合同订单-变更</td>
+                    <td (click)="showModal()">销售合同</td>
+                    <td (click)="showModal()">销售合同-追加</td>
+                    <td (click)="showModal()">销售合同-变更 </td>
+                </tr>
+                <tr>
+                    <td (click)="showModal()">采购合同 </td>
+                    <td (click)="showModal()">采购合同-追加</td>
+                    <td (click)="showModal()">采购合同-变更</td>
+                    <td (click)="showModal()"></td>
+                    <td (click)="showModal()"></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+    <div class="label-boxs">
+        <div class="workflow-template-title">
+            <label></label>
+            <p>项目终止申请-EH-01</p>
+        </div>
+        <nz-table #borderedTable nzBordered [nzShowPagination]="false" [nzData]="dataSet">
+            <tbody>
+                <tr>
+                    <td (click)="showModal()">销售合同订单-变更 </td>
+                    <td (click)="showModal()">采购合同订单-变更</td>
+                    <td (click)="showModal()">销售合同</td>
+                    <td (click)="showModal()">销售合同-追加</td>
+                    <td (click)="showModal()">销售合同-变更 </td>
+                </tr>
+                <tr>
+                    <td (click)="showModal()">采购合同 </td>
+                    <td (click)="showModal()">采购合同-追加</td>
+                    <td (click)="showModal()">采购合同-变更</td>
+                    <td (click)="showModal()"></td>
+                    <td (click)="showModal()"></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+    <div class="label-boxs">
+        <div class="workflow-template-title">
+            <label></label>
+            <p>项目终止申请-EH-01</p>
+        </div>
+        <nz-table #borderedTable nzBordered [nzShowPagination]="false" [nzData]="dataSet">
+            <tbody>
+                <tr>
+                    <td (click)="showModal()">销售合同订单-变更 </td>
+                    <td (click)="showModal()">采购合同订单-变更</td>
+                    <td (click)="showModal()">销售合同</td>
+                    <td (click)="showModal()">销售合同-追加</td>
+                    <td (click)="showModal()">销售合同-变更 </td>
+                </tr>
+                <tr>
+                    <td (click)="showModal()">采购合同 </td>
+                    <td (click)="showModal()">采购合同-追加</td>
+                    <td (click)="showModal()">采购合同-变更</td>
+                    <td (click)="showModal()"></td>
+                    <td (click)="showModal()"></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="新建模板" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="addNode">
+
+    <div class="new-box">
+        <label for="">类型 :</label>
+        <nz-select [ngModel]="'Home'" class="xiala2">
+            <nz-option [nzLabel]="'Home'" [nzValue]=""></nz-option>
+            <nz-option [nzLabel]="'Company'" [nzValue]="'Company'"></nz-option>
+        </nz-select>
+    </div>
+    <div class="new-box">
+        <label for="">模板名称 :</label>
+        <input class="set-w-473" nz-input placeholder="" [(ngModel)]="value" />
+    </div>
+
+</nz-modal>

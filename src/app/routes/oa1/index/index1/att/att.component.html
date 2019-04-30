@@ -1,0 +1,70 @@
+<div id="con">
+    <!--上下班考勤-->
+    <div class="att-div-con1">
+        <nz-calendar [(nzMode)]="mode" (nzSelectChange)="log($event)" [ngModel]="selectedValue" (ngModelChange)="log($event)">
+            <ul *nzDateCell="let date" class="events">
+                <li *ngFor="let item of listDataMap">
+                    <div class="yi" *ngIf="item.msgs.length ==  1 && date.getDate()==item.day&& item.month == date.getMonth() ">
+                        <ng-container *ngFor="let msg of item.msgs">
+                            <div class="type-box-success" *ngIf="msg.type == 'success'">
+                                {{msg.content}}
+                            </div>
+                            <div class="type-box-warning" *ngIf="msg.type == 'warning'">
+                                {{msg.content}}
+                            </div>
+                            <div class="type-box-normal" *ngIf="msg.type == 'normal'" nz-button nz-popover [(nzVisible)]="visible" (nzVisibleChange)="change($event)" nzTrigger="click" [nzContent]="contentTemplate">
+                                {{msg.content}}
+                            </div>
+                            <div class="type-box-error" *ngIf="msg.type == 'error'">
+                                {{msg.content}}
+                            </div>
+                            <div (mouseenter)="popor(msg)" nz-popover [nzTitle]="titleTemplate " [nzContent]="contentTemplate " class="type-box-legwork " *ngIf="msg.type=='legwork' ">
+                                {{msg.content}}
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="ban " *ngIf="item.msgs.length> 1 && date.getDate()==item.day && item.month == date.getMonth() ">
+                        <ng-container *ngFor="let msg of item.msgs">
+                            <div class="type-box-success" *ngIf="msg.type == 'success'">
+                                {{msg.content}}
+                            </div>
+                            <div class="type-box-warning" *ngIf="msg.type == 'warning'">
+                                {{msg.content}}
+                            </div>
+                            <div class="type-box-normal" *ngIf="msg.type == 'normal'">
+                                {{msg.content}}
+                            </div>
+                            <div class="type-box-error" *ngIf="msg.type == 'error'">
+                                {{msg.content}}
+                            </div>
+                            <div nz-popover [nzTitle]="titleTemplate" (mouseenter)="popor(item)" [nzContent]="contentTemplate" class="type-box-legwork" *ngIf="msg.type == 'legwork'">
+                                {{msg.content}}
+                            </div>
+                        </ng-container>
+                    </div>
+                </li>
+            </ul>
+            <ng-container *nzMonthCell="let month">
+                <h1>mons</h1>
+                <div *ngIf="getMonthData(month) as monthData" class="notes-month">
+                    <section>{{ monthData }} XXXXXXX</section>
+                    <span>Backlog number</span>
+                </div>
+            </ng-container>
+            <ng-template #contentTemplate>
+
+
+            </ng-template>
+        </nz-calendar>
+    </div>
+</div>
+
+
+<!-- 卡牌hover popuer -->
+<!-- <ng-template #titleTemplate><i nz-icon type="close"></i> Title</ng-template> -->
+<ng-template #contentTemplate>
+    <p class="list-title">{{poporData?.title}}</p>
+    <div class="list-popor"><span>发起人: </span><small>{{poporData?.name}}</small></div>
+    <div class="list-popor"><span>汇报给: </span><small>{{poporData?.noticePersonName}}</small></div>
+    <div class="list-popor"><span>抄送给: </span><small>{{poporData?.ccPersonName}}</small></div>
+</ng-template>

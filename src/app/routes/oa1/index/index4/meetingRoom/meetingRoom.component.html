@@ -1,0 +1,76 @@
+<div id="con">
+  <!-- 头部查询部分 -->
+  <div class="meetBtns">
+    <button nz-button nzType="primary" (click)="showModal(0)"><i nz-icon type="plus"></i>新增会议室</button>
+
+    <button nz-button nzType="default" (click)="DataBind()"><i nz-icon type="redo"></i>刷新</button>
+    <div class="searchDiv">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input type="text" nz-input placeholder="搜索会议室" [(ngModel)]="selecthysname">
+        </nz-input-group>
+        <ng-template #suffixIconSearch >
+          <i nz-icon type="search" (click)="DataBind()"></i>
+        </ng-template>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+  <div class="statistics-con">
+    <table>
+      <thead>
+        <tr>
+          <th>会议室名称</th>
+          <th>会议室地址</th>
+          <th>是否开放预定</th>
+          <th>录入人</th>
+          <th>录入时间</th>
+          <th>最大容纳人数</th>
+          <th>会议室服务设施</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let option of ConferenceRoomList">
+          <td>{{option.conferenceName}}</td>
+          <td>{{option.conferenceAddress}}</td>
+          <td>{{option.isopen}}</td>
+          <td>{{option.name}}</td>
+          <td>{{option.time}}</td>
+          <td>{{option.MaxNumber}}</td>
+          <td>{{option.facilities}}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="showModal(1,option)">修改</button>
+            <button nz-button nzType="default" (click)="showConfirm(option.id)">删除</button>
+          </td>
+        </tr>
+        <nz-modal class="meetNzmodal" [(nzVisible)]="isVisible" nzTitle="新增会议室" (nzOnCancel)="handleCancel()" nzCancelText="取消" nzOkText="确认" (nzOnOk)="handleOk()">
+          <div class="nzmodal">
+            <input nz-input style="display:none" [(ngModel)]="id" />
+            <nz-form-label class="label">会议室名称</nz-form-label>
+            <input class="meetInput" nz-input placeholder="请输入" [(ngModel)]="hysname">
+            <div style="height: 20px;"></div>
+            <nz-form-label class="label">会议室地址</nz-form-label>
+            <input class="meetInput" nz-input placeholder="请输入" [(ngModel)]="hysaddress">
+            <div style="height: 20px;"></div>
+            <nz-form-label class="label">是否开放预订</nz-form-label>
+            <nz-select style="width:80%;" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
+              <nz-option nzValue="1" nzLabel="是"></nz-option>
+              <nz-option nzValue="0" nzLabel="否"></nz-option>
+            </nz-select>
+            <div style="height: 20px;"></div>
+            <nz-form-label class="label">最大容纳人数</nz-form-label>
+            <input class="meetInput" nz-input placeholder="请输入" [(ngModel)]="maxperson">
+            <div style="height: 20px;"></div>
+            <nz-form-label class="label">会议服务设施</nz-form-label>
+            <!--<label nz-checkbox>白板</label>
+            <label nz-checkbox>电视</label>
+            <label nz-checkbox>视频会议</label>
+            <label nz-checkbox>沙发</label>
+            <label nz-checkbox>投影仪</label>-->
+            <input class="meetInput" nz-input placeholder="请输入" [(ngModel)]="facilities">
+            <div style="height: 20px;"></div>
+          </div>
+        </nz-modal>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="role2">
+  <div class="role2-con">
+    <div class="role2-select">
+      <nz-select style="width: 200px;" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose" (ngModelChange)="DataBindAll()">
+        <nz-option nzValue="ALL" nzLabel="全部"></nz-option>
+        <nz-option *ngFor="let m of selectedmenus" nzValue="{{m.id}}" nzLabel="{{m.roleName}}"></nz-option>
+      </nz-select>
+    </div>
+    <button class="btn" nz-button nzType="primary" (click)="showModalPL()"><i nz-icon type="plus"></i>批量添加角色</button>
+    <nz-modal [(nzVisible)]="isVisiblePL" nzTitle="批量添加角色" (nzOnCancel)="handleCancelPL()" (nzOnOk)="handleOkPL()">
+      <div>
+        <div class="fl">
+          <label>选择角色:</label>
+          <nz-select style="width: 200px;margin-left:4px" [(ngModel)]="selectedValuePL" nzAllowClear nzPlaceHolder="Choose" (ngModelChange)="selectedValuePLChange()">
+            <nz-option class="roleLabel" *ngFor="let m of selectedmenus" nzValue="{{m.id}}" nzLabel="{{m.roleName}}"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <nz-checkbox-group class="CheckBoxPL" [(ngModel)]="CheckBoxPL"></nz-checkbox-group>
+      <!--<nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)">
+      <div nz-row class="divWap">
+        <div nz-col nzSpan="6" *ngFor="let m of userlistmenus">
+          <label *ngIf="m.istrue==0" nz-checkbox nzValue="{{m.id}}" [ngModel]="false">{{m.name}}</label>
+          <label *ngIf="m.istrue!=0" nz-checkbox nzValue="{{m.id}}" [ngModel]="true">{{m.name}}</label>
+        </div>
+      </div>
+    </nz-checkbox-wrapper>-->
+    </nz-modal>
+
+
+    <div class="role2-search">
+      <div class="searchNz">
+        <span nz-popover [nzContent]="contentTemplate" nzPlacement="bottom">高级搜索</span>
+      </div>
+      <div class="comTemp">
+        <ng-template #contentTemplate>
+          <form nz-form class="search-form" (ngSubmit)="selectsubmitForm()">
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group class="w">
+                  <input type="text" nz-input placeholder="姓名" >
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group>
+                  <input type="text" nz-input placeholder="部门" >
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group>
+                  <input type="text" nz-input placeholder="职位" >
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button class="login-form-button">查询</button>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </ng-template>
+      </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="role2-cons">
+      <div *ngFor="let m of roledistributionUserList">
+        <div class="role2Edit" (click)="showModal(m)" nz-button><i nz-icon type="edit" nzType="default"></i></div>
+
+        <div class="userInfo-img" [ngStyle]="{'background-image':'url(../../../../../assets/img/1.jpg)'}"></div>
+        <p class="userName">{{m.name}}</p>
+        <p class="jobs">{{m.position}} / {{m.department}}</p>
+        <div class="tally">
+          <span>技术</span>
+          <span>运营</span>
+          <span>后勤</span>
+        </div>
+      </div>
+
+      <nz-modal [(nzVisible)]="isVisible" nzTitle="编辑员工角色" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <div>
+          <div class="edit-userInfo-img" [ngStyle]="{'background-image':'url(../../../../../assets/img/1.jpg)'}"></div>
+          <div class="fl">
+            <p class="edit-userName">姓名：{{userName}}</p>
+            <p class="edit-jobs">职位：{{jobs}}</p>
+          </div>
+        </div>
+        <div style="clear:both"></div>
+        <nz-checkbox-group class="CheckBox" [(ngModel)]="CheckBox"></nz-checkbox-group>
+        <!--<nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)">
+      <div nz-row class="divWap">
+        <div nz-col nzSpan="6"><label nz-checkbox nzValue="销售人员" [ngModel]="true">销售人员</label></div>
+        <div nz-col nzSpan="6"><label nz-checkbox nzValue="服务人员">服务人员</label></div>
+        <div nz-col nzSpan="6"><label nz-checkbox nzValue="订单管理员">订单管理员</label></div>
+        <div nz-col nzSpan="6"><label nz-checkbox nzValue="开票财务">开票财务</label></div>
+        <div nz-col nzSpan="6"><label nz-checkbox nzValue="售后人员">售后人员</label></div>
+      </div>
+    </nz-checkbox-wrapper>-->
+      </nz-modal>
+
+    </div>
+    <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DataBind()" (nzPageSizeChange)="DataBind()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+    <ng-template #rangeTemplate let-range="range" let-total>
+      总条数：{{Total}}
+    </ng-template>
+    <div style="clear:both;height: 20px;"></div>
+  </div>
+</div>

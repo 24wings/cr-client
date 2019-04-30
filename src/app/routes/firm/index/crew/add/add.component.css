@@ -1,0 +1,112 @@
+#crew-nav{width: 100%;height: 60px;background: #f5f5fa;border-bottom: 1px solid #E1E1EB;float: left;    margin-bottom: 20px;}
+#crew-nav>h4{float: left;color: #333;
+    font-size: 18px;
+    line-height: 60px;
+    margin-bottom: 0;
+    text-indent: 20px;}
+#crew-nav>ul{float:right;    height: 60px;
+    line-height: 60px;
+    margin-right: 20px;
+    color: #999;
+    font-size: 14px;}
+#crew-nav>ul>li{float: left;}
+.crewAddl{ 
+    float: left;
+    background: white;
+    margin-right: 1%;
+    height: 800px;
+    overflow: auto;}
+/* .crewAddR{width: 15%;float: left;background: white} */
+.crewAddC{clear: both;}
+.ant-menu-vertical .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-inline .ant-menu-item:after{border-right: 0!important;}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{border-left: 3px solid #1890ff!important;background: white!important}
+#index1{height: 300px;background: cadetblue;}
+#index2{height: 600px;background:chocolate}
+#index3{height: 800px;background:aquamarine}
+.crewAddC{overflow: auto}
+.crewAddC>div{background: white;margin: 20px}
+.basicInfo{float: left;width: 100%;border-bottom: 1px solid #EBEBF5;
+    padding-bottom: 20px;margin-left: 0!important}
+.basicInfoL{float: left;height: 200px;background-size: cover;
+    background-position: center;margin-top: 20px;}
+.basicInfoR{float: left;height: 240px;margin-top: 20px}
+.userName{margin-bottom: 20px}
+.userName>input{border: 1px solid transparent;
+    font-size: 24px;
+    color: #333;}
+.select:hover,.infoDis>dl>dd>ul>li>input:hover,.skillsText:hover{border: 1px solid #1890ff!important;border-radius: 4px}
+.department>input{    width: 300px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    margin-bottom: 20px;}
+.infoDis>dl>dd{float: left;
+    width: 30%;
+    margin-right: 3%;}
+.infoDis>dl>dd>ul>li{height: 40px;border-top: 1px dashed #EBEBF5;}
+.infoDis>dl>dd>ul>li:last-child{border-bottom: 1px dashed #EBEBF5;}
+.infoDis>dl>dd>ul>li>input{border: 1px solid transparent;color: #333}
+.infoDis>dl>dd>ul>li>span{font-size: 14px;color: #808080;margin-top: 10px;
+    display: inline-block;}
+.basicInfoSave{background: #337cfb;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;}
+.basicInfoL>div{width: 95%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    margin-left: 5%;}
+.basicImg{    margin: 0 auto;
+    display: table;
+    margin-top: 10px;}
+.integral{clear: both;
+    border-bottom: 1px solid #EBEBF5;
+    padding-bottom: 20px;}
+.inSave{    margin-right: 15px;
+    margin-top: 20px;}
+.integral>span:first-child{    border-left: 4px solid #337CFB;
+    text-indent: 15px;
+    display: inline-block;
+    margin-top: 20px;font-size: 16px;font-weight: 900}
+.skills>span:first-child,.equipment>span:first-child,.experience>span:first-child,.edu>span:first-child,.train>span:first-child,.other>span:first-child{border-left: 4px solid #337CFB;
+    text-indent: 15px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 900}
+.skillsText{width:100%;border:1px solid transparent}
+.skills,.equipment,.experience,.edu,.train,.other{clear: both;
+    border-bottom: 1px solid #EBEBF5;
+    padding-bottom: 20px;}
+table,table tr th, table tr td {border:1px dashed #EBEBF5; }
+table{width: 96%;
+    margin: 0 auto;border-color:#EBEBF5; border-collapse: collapse;}
+th,td{padding: 18px}
+.label{float: left;padding-right: 0!important;width: 20%}
+.input{float: left;padding-left: 0!important;width: 80%}
+.editDiv>div{margin-bottom: 20px}
+.editBtn>button{width:45%}
+.equipmentEdit{margin-right: 20px}
+/* 工作经历、教育背景 */
+.experienceLi,.eduLi,.trainLi{margin-left: 20px;margin-bottom: 20px;}
+.expSpan1,.eduSpan1,.trainSpan1{font-size: 14px;font-weight: 900;color: #333;margin-right: 20px}
+.expSpan2,.eduSpan2,.trainSpan2{font-size: 14px;color: #333;margin-right: 20px}
+.expSpan3,.eduSpan3,.trainSpan3{font-size: 14px;color: #808080}
+.contact{    clear: both;
+    text-indent: 40px;
+    font-size: 16px;
+    color: #808080;}
+.other{    float: left;
+    width: 100%;
+    background: white;}
+.otherDiv{margin-left: 20px;}
+.deleteBtn,.editBtn{margin-right: 20px}
+.borderBg{background: white!important;border: 0 none!important}
+.labelSelect{ float: left;
+    width: 50%;}
+.labelSelect>.label{width:auto}
+.labelSelect>.input{margin-top: -6px;
+    margin-bottom: 6px;}

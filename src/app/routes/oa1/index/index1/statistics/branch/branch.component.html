@@ -1,0 +1,72 @@
+<div  id="crew-con">
+  <nz-spin [nzSpinning]="isSpinning" nzTip='加载中...'>
+    <div class="branch">
+      <div class="branch-nav">
+        <div class="branch-t1">
+          <span>部门考勤</span>
+          <span>
+            <nz-select style="width: 120px;" [compareWith]="compareFn" [(ngModel)]="YearselectedValue" (ngModelChange)="DataBind()" nzAllowClear nzPlaceHolder="请选择年">
+              <nz-option *ngFor="let option of YearoptionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+            </nz-select>
+          </span>
+          <span>
+            <nz-select style="width: 120px;" [compareWith]="compareFn" [(ngModel)]="MonthselectedValue" (ngModelChange)="DataBind()" nzAllowClear nzPlaceHolder="请选择月">
+              <nz-option *ngFor="let option of MonthoptionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+            </nz-select>
+          </span>
+          <i [routerLink]="['/oa1/index/index1/statistics/mine']">我的考勤统计</i>
+        </div>
+        <div class="branchDiv">
+          <span class="fl">部门</span>
+          <nz-radio-group class="branScope" [(ngModel)]="branchValue" [nzButtonStyle]="'solid'" (ngModelChange)="DataBindAll()">
+            <label nz-radio-button nzValue="{{m.id}}" *ngFor="let m of departmentList">{{m.department}}</label>
+          </nz-radio-group>
+        </div>
+      </div>
+      <div class="table-info">
+        <table>
+          <thead>
+            <tr>
+              <th>姓名</th>
+              <th>部门</th>
+              <th>职位</th>
+              <th>应出勤</th>
+              <th>实际出勤</th>
+              <th>休假</th>
+              <th>外勤</th>
+              <th>迟到早退</th>
+              <th>未打卡/旷工</th>
+              <th>累计剩余调休</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let m of menus">
+              <td>
+                <div>
+                  <span class="imgSpan" [ngStyle]="{'background-image':'url(../../../../../../../assets/img/1.jpg)'}"></span>
+                  <span class="userSpan">{{m.name}}</span>
+                </div>
+              </td>
+              <td>{{m.department}}</td>
+              <td>{{m.position}}</td>
+              <td>{{m.ShouldCQday}}</td>
+              <td>{{m.ActualCQday}}</td>
+              <td>{{m.Vacationday}}</td>
+              <td>{{m.OutCardday}}</td>
+              <td>{{m.ThismonthLate}}</td>
+              <td>{{m.NoputCard}}</td>
+              <td>{{m.SurplusBreakOffDay}}</td>
+              <td>{{m.Date}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <nz-pagination class="pageIndex" [(nzPageIndex)]="PageIndex" [nzTotal]="Total" nzShowSizeChanger [(nzPageSize)]="PageSize" [nzShowTotal]="rangeTemplate" (nzPageIndexChange)="DataBind()" (nzPageSizeChange)="DataBind()" [nzPageSizeOptions]="[5,10,20]"></nz-pagination>
+            <ng-template #rangeTemplate let-range="range" let-total>
+              总条数：{{Total}}
+            </ng-template>
+      </div>
+    </div>
+  </nz-spin>
+</div>
+
